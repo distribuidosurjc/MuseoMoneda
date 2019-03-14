@@ -1,0 +1,16 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+	<td th:if="${moneda != null}">
+		<h1>Moneda seleccionada</h1>
+
+		<p th:text="'Modelo:' + ${moneda.modelo}" />
+		<p th:text="'Valor:' + ${moneda.valor}" />
+		<p th:text="'Divisa:' + ${moneda.divisa}" /> <a href="/">Volver</a>
+	</td>
+	<td th:unless="${moneda != null}">
+		<h1>Moneda no encontrada</h1>
+		<a href="/">Volver</a>
+	</td>
+</body>
+</html>

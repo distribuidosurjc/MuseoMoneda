@@ -1,0 +1,102 @@
+@charset "ISO-8859-1";
+*{
+	border: 0;
+	margin: 0;
+	padding: 0;
+}
+body{
+	background: #ccc;
+	background-image:  url("../resources/img/monedas3.jpg");
+}
+
+#Volver{
+	position: relative;
+	left: 350px;
+	top: 250px;
+}
+
+#Añadir{
+	border: none;
+	heigth: 55px;
+	width: 65px;
+	font-size: 20px;
+	position: relative;
+	left: 530px;
+	top: 75px;
+	background-color:#EA7317;
+	border-radius: 8px;
+	cursor: pointer;
+	
+}
+.ValorFacial{
+	position: relative;
+	left: 115px;
+	top: 100px;
+
+
+}
+.Etiquetas{
+	position: relative;
+	left: 115px;
+	top: 100px;
+	
+
+}
+#etiquetas1{
+	background-color:red;
+	width: 300px;
+	height: 200px;
+	position:static;
+
+}
+
+.campos{
+	position: relative;
+	left: 130px;
+	top: 100px;
+
+}	
+#contenedor{
+	height: 750px;
+	width: 780px;
+	margin: 0 auto 0 auto;
+}
+#cabecera{
+	background-color:white;
+	width: 780px;
+	height: 170px;
+
+}
+#AñadirMoneda{
+	background-color:blue;
+	width: 780px;
+	height: 590px;
+
+}
+#moneda{
+	background-color:blue;
+	width: 780px;
+	height: 200px;
+	position: relative;
+	left: 530px;
+	top: 180px;
+
+}
+#Monedas{
+	background-color:blue;
+	width: 780px;
+	height: 200px;
+
+}
+#Ejemplares{
+	background-color:red;
+	width: 780px;
+	height: 200px;
+
+}
+#Proveedores{
+	background-color:green;
+	width: 780px;
+	height: 200px;
+
+}
