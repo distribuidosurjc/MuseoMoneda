@@ -1,4 +1,12 @@
+<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="../static/css/Index.css"
+	th:href="@{/css/styles.css}" />
+</head>
+
 <body>
 
 	<td th:if="${moneda != null}">
@@ -9,8 +17,7 @@
 		<p th:text="'Divisa:' + ${moneda.divisa}" /> <a href="/">Volver</a>
 	</td>
 	<td th:unless="${moneda != null}">
-		<h1>Moneda no encontrada</h1>
-		<a href="/">Volver</a>
+		<h1>Moneda no encontrada</h1> <a href="/">Volver</a>
 	</td>
 </body>
 </html>

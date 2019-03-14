@@ -1,29 +1,33 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-	<meta charset="ISO-8859-1">
-	<title>Insert title here</title>
-	<link rel="stylesheet" type="text/css" href="../static/css/Index.css"
-				th:href="@{/css/styles.css}"/>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="../static/css/Index.css"
+	th:href="@{/css/styles.css}" />
 </head>
+
 <body>
-	<div id= "contenedor"> 
+	<div id="contenedor">
 		<div id="cabecera">
 			<h1>Cabecera pagina inicial</h1>
-			
+
 		</div>
 		<div id="Monedas">
 			<h1>Monedas</h1>
-			<button id="Añadir" onclick="location.href='http://localhost:8080/formulario/1'">Añadir</button>
+			<button id="AÃ±adir"
+				onclick="location.href='http://localhost:8080/crear/moneda'">AÃ±adir</button>
 			<button id="Mod" onclick="location.href='http://localhost:8080/mod'">Modificar</button>
 		</div>
 		<div id="Ejemplares">
 			<h1>Ejemplares</h1>
-			<button id="Añadir" onclick="location.href='http://localhost:8080/formulario/2'">Añadir</button>
+			<button id="AÃ±adir"
+				onclick="location.href='http://localhost:8080/crear/ejemplar'">AÃ±adir</button>
 		</div>
 		<div id="Proveedores">
 			<h1>Proveedores</h1>
-			<button id="Añadir" onclick="location.href='http://localhost:8080/formulario/3'">Añadir</button>
+			<button id="AÃ±adir"
+				onclick="location.href='http://localhost:8080/crear/proveedor'">AÃ±adir</button>
 		</div>
 	</div>
 </body>
