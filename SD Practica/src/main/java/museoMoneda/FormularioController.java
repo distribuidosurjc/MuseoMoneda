@@ -12,20 +12,20 @@ public class FormularioController {
 	@Autowired
 	public MonedaRepository repMonedas;
 
-	@RequestMapping("/formulario/{num}")
-	public String enlace(
-			@PathVariable(value="num") String num,
+	@RequestMapping("/crear/{src}")
+	public String crear(
+			@PathVariable(value="src") String src,
 			Model model) {
 
-		return "formulario";
+		return "crear";
+	}
+
+	@RequestMapping("/modificar/{src}")
+	public String modificar(
+			@PathVariable(value="src") String src,
+			Model model) {
+
+		return "modificar";
 	}
 	
-	@RequestMapping("/insertar")
-	public String insertar(Moneda moneda, Model model) {
-
-		repMonedas.save(moneda);
-
-		return "index";
-	}
-
 }

@@ -11,12 +11,13 @@ public class InsertarController {
 
 	@Autowired
 	public MonedaRepository repMonedas;
-/*
-	@RequestMapping("/insertar")
-	public String insertar(Moneda moneda, Model model) {
+
+	@RequestMapping("/insertar/{src}")
+	public String insertar(@PathVariable(value="src") String src,
+			Moneda moneda, Model model) {
 
 		repMonedas.save(moneda);
 
-		return "index";
-	}*/
+		return "hecho";
+	}
 }
