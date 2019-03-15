@@ -20,4 +20,4 @@ Habiendo hecho el commit, finalmente hay que hacer "git push". Y ya estará el r
 
 -----------------------------------------------
 
-Que es complicado? (Que lo es) Pues lo que hemos hecho hasta ahora, descargar ficheros, machacarlos en el eclipse, trabajar con ellos y subirlos de nuevo. Las dos cosas funcionan pero esta da más trabajo.
+¿Que es complicado? (Que lo es) Pues lo que hemos hecho hasta ahora, descargar ficheros, machacarlos en el eclipse, trabajar con ellos y subirlos de nuevo. Las dos cosas funcionan pero esta da más trabajo.
