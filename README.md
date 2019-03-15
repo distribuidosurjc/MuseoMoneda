@@ -18,7 +18,7 @@ Una vez se acaba de trabajar, hay que actualizar el repositorio remoto de github
 
 Habiendo hecho el commit, finalmente hay que hacer "git push". Y ya estará el remoto igual que el local.
 
--- Para cuando se cree un fichero nuevo y lo queramos añadir del local al remoto --
+-- Para cuando se cree un fichero nuevo y lo queramos añadir del local al remoto --<br/>
 Nos vamos a la carpeta contenedora y "git add nombreFichero", y ya los pasos normales de commit y push.
 
 -----------------------------------------------
