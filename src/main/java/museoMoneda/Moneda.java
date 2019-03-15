@@ -21,6 +21,7 @@ public class Moneda {
 	private String descripcion;
 
 	public Moneda() {
+		
 	}
 
 	public Moneda(String modelo, int valor, String divisa, double diametro, double peso, String composicion, String descripcion) {
