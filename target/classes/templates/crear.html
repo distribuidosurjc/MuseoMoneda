@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Añadir a la base de datos</title>
 <link rel="stylesheet" type="text/css" href="../static/css/Index.css"
 	th:href="@{/css/styles.css}" />
 </head>
@@ -55,11 +55,7 @@
 					</tr>
 					<tr>
 						<td><label class="Etiquetas">Descripción:</label>
-<<<<<<< HEAD
-						<td><input type="text" class="campos" name='descripcion' /></td>
-=======
-						<td><textarea name="descripcion" rows="6" cols="25"></textarea></td>
->>>>>>> 420646678387f23ac01453c61bc51f1e75bb1e4a
+						<td><textarea name="descripcion" rows="4" cols="25" placeholder="Información relevante de esta tirada de monedas."></textarea></td>
 						</td>
 					</tr>
 				</table>
@@ -81,13 +77,13 @@
 					</tr>
 					<tr>
 						<td><label class="Etiquetas">Año:</label>
-						<td><input type='number' class="campos" name='año' max="2019"
+						<td><input type='number' class="campos" name='año' max="2019" placeholder="2019"
 							required /></td>
 						</td>
 					</tr>
 					<tr>
 						<td><label class="Etiquetas">Ciudad de Acuñación:</label>
-						<td><input type='text' class="campos" name='ciudad' required /></td>
+						<td><input type='text' class="campos" name='ciudad' placeholder="Madrid, Lisboa..." required /></td>
 						</td>
 					</tr>
 					<tr>
@@ -103,7 +99,7 @@
 					</tr>
 					<tr>
 						<td><label class="Etiquetas">Proveedor:</label>
-						<td><input type='text' class="campos" name='proveedor'
+						<td><input type='text' class="campos" name='proveedor' placeholder="CIF"
 							required /></td>
 						</td>
 					</tr>
@@ -121,28 +117,28 @@
 					<tr>
 						<td><label class="Etiquetas">CIF:</label>
 						<td><input type='text' class="campos" name='cif'
-							pattern="[A-Z]\d{7}([A-Z]|\d)" required /></td>
+							pattern="[A-Z]\d{7}([A-Z]|\d)" placeholder="A1234567B" required /></td>
 						</td>
 					</tr>
 					<tr>
 						<td><label class="Etiquetas">Nombre:</label>
-						<td><input type='text' class="campos" name='nombre' required /></td>
+						<td><input type='text' class="campos" name='nombre' placeholder="Proveedor SL" required /></td>
 						</td>
 					</tr>
 					<tr>
 						<td><label class="Etiquetas">Dirección Postal:</label>
-						<td><input type='text' class="campos" name='direccion'
+						<td><input type='text' class="campos" name='direccion' placeholder="Calle Falsa 123"
 							required /></td>
 						</td>
 					</tr>
 					<tr>
 						<td><label class="Etiquetas">E-Mail:</label>
-						<td><input type='text' class="campos" name='email' required /></td>
+						<td><input type='text' class="campos" name='email' placeholder="correo@empresa.dom" required /></td>
 						</td>
 					</tr>
 					<tr>
 						<td><label class="Etiquetas">Teléfono de Contacto:</label>
-						<td><input type='text' pattern="[0-9]{9}" class="campos"
+						<td><input type='text' pattern="[0-9]{9}" placeholder="123456789" class="campos"
 							name='tlf' required /></td>
 						</td>
 					</tr>
