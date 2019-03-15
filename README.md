@@ -3,13 +3,13 @@
 Instrucciones para trabajar con git
 
 -- Inicialización --<br/>
-Paso 1: Abrimos git bash y nos vamos a la carpeta en la que queramos empezar.
-Paso 2: Creamos la carpeta desde git bash "mkdir NombreCarpeta" y nos vamos a ella "cd NombreCarpeta".
-Paso 3: Una vez en la carpeta, iniciamos el git "git init".
-Paso 4: Ya tenemos una carpeta git, ahora obtenemos el código del repositorio "git clone https://github.com/distribuidosurjc/MuseoMoneda.git" (podéis copiar la URL en el repositorio donde clone or download)
+Paso 1: Abrimos git bash y nos vamos a la carpeta en la que queramos empezar.<br/>
+Paso 2: Creamos la carpeta desde git bash "mkdir NombreCarpeta" y nos vamos a ella "cd NombreCarpeta".<br/>
+Paso 3: Una vez en la carpeta, iniciamos el git "git init".<br/>
+Paso 4: Ya tenemos una carpeta git, ahora obtenemos el código del repositorio "git clone https://github.com/distribuidosurjc/MuseoMoneda.git" (podéis copiar la URL en el repositorio donde clone or download)<br/>
 Passo 5: Ya tenemos todos los archivos en nuestro ordenador. Desde el eclipse STS o el IDE que utilicéis, importáis el proyecto maven desde la carpeta que se ha generado al hacer clone.
 
--- Una vez ya tenemos el proyecto en local --
+-- Una vez ya tenemos el proyecto en local --<br/>
 Importante paso previo: Antes de empezar a trabajar, abrir git bash en la carpeta y pedirle que mire si hay alguna novedad y que si la hay que la descargue "git pull".
 
 Ya con los archivos actualizados en local, se trabaja con el eclipse blablabla. 
