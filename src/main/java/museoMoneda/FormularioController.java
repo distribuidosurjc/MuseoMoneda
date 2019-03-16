@@ -11,7 +11,8 @@ public class FormularioController {
 
 	@Autowired
 	public MonedaRepository repMonedas;
-
+	public ProveedorRepository repProveedor;
+	
 	@RequestMapping("/crear/{src}")
 	public String crear(
 			@PathVariable(value="src") String src,

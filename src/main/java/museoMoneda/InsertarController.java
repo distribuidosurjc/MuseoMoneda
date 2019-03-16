@@ -11,13 +11,23 @@ public class InsertarController {
 
 	@Autowired
 	public MonedaRepository repMonedas;
-
+	
+	@Autowired
+	public ProveedorRepository repProveedor;
+	
 	@RequestMapping("/insertar/{src}")
 	public String insertar(@PathVariable(value="src") String src,
-			Moneda moneda, Model model) {
-
-		repMonedas.save(moneda);
-
+			Moneda moneda,Proveedor proveedor, Model model) {
+		if(src == "moneda") {
+			repMonedas.save(moneda);
+		}else if(src == "proveedor"){
+			repProveedor.save(proveedor);
+		}
+		
+		
+		
+		
 		return "hecho";
 	}
+
 }
