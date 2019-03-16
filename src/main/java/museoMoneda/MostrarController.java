@@ -13,9 +13,9 @@ public class MostrarController {
 	public MonedaRepository repMonedas;
 
 	@RequestMapping("/mostrar")
-	public String mostrar(@RequestParam String modelo, Model model) {
-		
-		Moneda moneda = repMonedas.findByModelo(modelo);
+	public String mostrar(@RequestParam Integer modelo, Model model) {
+
+		Moneda moneda = repMonedas.findById(modelo).get();
 		
 		model.addAttribute("moneda", moneda);
 

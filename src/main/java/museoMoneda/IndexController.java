@@ -14,8 +14,8 @@ public class IndexController {
 	
 	@PostConstruct
 	public void init() {
-		repMonedas.save(new Moneda("001", 15, "euro", 1, 2, "Zinc", "Redonda"));
-		repMonedas.save(new Moneda("002", 6, "dolar", 1.3, 7.4, "Cobre", "Abollada"));
+		repMonedas.save(new Moneda(15, "euro", 1, 2, "Zinc", "Redonda"));
+		repMonedas.save(new Moneda(6, "dolar", 1.3, 7.4, "Cobre", "Abollada"));
 	}
 		
 	@RequestMapping("/")

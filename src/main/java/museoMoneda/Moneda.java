@@ -10,9 +10,9 @@ public class Moneda {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private long id;
+	private int modelo;
 	
-	private String modelo;
+//	private String modelo;
 	private int valor;
 	private String divisa;
 	private double diametro;
@@ -24,8 +24,8 @@ public class Moneda {
 		
 	}
 
-	public Moneda(String modelo, int valor, String divisa, double diametro, double peso, String composicion, String descripcion) {
-		this.modelo = modelo;
+	public Moneda(int valor, String divisa, double diametro, double peso, String composicion, String descripcion) {
+		//this.modelo = modelo;
 		this.valor = valor;
 		this.divisa = divisa;
 		this.diametro = diametro;
@@ -34,13 +34,13 @@ public class Moneda {
 		this.descripcion = descripcion;
 	}
 
-	public String getModelo() {
+	public int getModelo() {
 		return modelo;
 	}
 
-	public void setModelo(String modelo) {
+/*	public void setModelo(String modelo) {
 		this.modelo = modelo;
-	}
+	}*/
 
 	public int getValor() {
 		return valor;
@@ -58,13 +58,10 @@ public class Moneda {
 		this.divisa = divisa;
 	}
 
-	public long getId() {
+/*	public long getId() {
 		return id;
 	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
+*/
 
 	public double getDiametro() {
 		return diametro;
