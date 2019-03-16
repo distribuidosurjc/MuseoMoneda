@@ -10,7 +10,7 @@ public class Moneda {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int modelo;
+	private Integer modelo;
 	
 //	private String modelo;
 	private int valor;
