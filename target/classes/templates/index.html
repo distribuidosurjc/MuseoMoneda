@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Museo Numismático de Móstoles</title>
+<link rel="stylesheet" type="text/css" href="../static/css/styles.css"
+	th:href="@{/css/styles.css}" />
+</head>
+
+<body>
+	<div id="contenedor">
+		<div id="cabecera">
+			<h1>Cabecera pagina inicial</h1>
+
+		</div>
+		<div id="Monedas">
+			<h1>Monedas</h1>
+			<button id="Añadir"
+				onclick="location.href='http://localhost:8080/crear/moneda'">Añadir</button>
+			<button id="Mod" onclick="location.href='http://localhost:8080/mod'">Modificar</button>
+			<button id="Buscar" onclick="location.href='http://localhost:8080/buscar'">Buscar</button>
+		</div>
+		<div id="Ejemplares">
+			<h1>Ejemplares</h1>
+			<button id="Añadir"
+				onclick="location.href='http://localhost:8080/crear/ejemplar'">Añadir</button>
+		</div>
+		<div id="Proveedores">
+			<h1>Proveedores</h1>
+			<button id="Añadir"
+				onclick="location.href='http://localhost:8080/crear/proveedor'">Añadir</button>
+		</div>
+	</div>
+</body>
+</html>
