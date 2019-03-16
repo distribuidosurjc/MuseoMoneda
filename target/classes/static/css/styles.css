@@ -4,28 +4,33 @@
 	margin: 0;
 	padding: 0;
 }
+
 body{
 	background: #ccc;
 	background-image:  url("../resources/img/monedas3.jpg");
 }
+
 #Monedas{
 	background-color: blue;
 	width: 780px;
 	height: 200px;
 
 }
+
 #Ejemplares{
 	background-color:red;
 	width: 780px;
 	height: 200px;
 
 }
+
 #Proveedores{
 	background-color:green;
 	width: 780px;
 	height: 200px;
 
 }
+
 #Añadir{
 	border: none;
 	heigth: 55px;
@@ -39,6 +44,7 @@ body{
 	cursor: pointer;
 	
 }
+
 #Buscar{
 	border: none;
 	heigth: 55px;
@@ -51,6 +57,7 @@ body{
 	border-radius: 8px;
 	cursor: pointer;
 }
+
 #Buscar2{
 	border: none;
 	heigth: 55px;
@@ -63,6 +70,7 @@ body{
 	border-radius: 8px;
 	cursor: pointer;
 }
+
 #Modificar{
 		border: none;
 	heigth: 55px;
@@ -75,48 +83,48 @@ body{
 	border-radius: 8px;
 	cursor: pointer;
 }
+
 #Volver{
 	position: relative;
 	left: 350px;
 }
+
 #add{
 	position: relative;
 	left: 300px;
 }
+
 .Etiquetas{
 	position: relative;
 	left: 115px;
-	top: 100px;
-	
-
+	top: 100px;	
 }
+
 .campos{
 	position: relative;
 	left: 130px;
 	top: 100px;
-
 }
 
-	
 #contenedor{
 	height: 750px;
 	width: 780px;
 	margin: 0 auto 0 auto;
 }
+
 #cabecera{
 	background-color:white;
 	width: 780px;
 	height: 170px;
-
 }
+
 #AñadirMoneda{
 	background-color:#004080;
 	width: 780px;
 	height: 590px;
 	color: white;
-
-
 }
+
 #Formulario{
 	width: 780px;
 	height: 500px;
@@ -131,8 +139,8 @@ body{
 	position: relative;
 	left: 530px;
 	top: 180px;
-
 }
+
 #Mostrar{
 	background-color: #a90bf4;
 	width: 350px;
@@ -141,6 +149,7 @@ body{
 	top: 150px;
 	left: 250px;
 }
+
 #buscador{
 	position: relative;
 	left: 300px;
