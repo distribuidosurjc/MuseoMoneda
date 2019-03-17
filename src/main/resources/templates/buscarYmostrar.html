@@ -14,18 +14,22 @@
 			<input id="Buscar2" type='submit' name='buscar' value='Buscar'>
 		</form>
 	</div>
-	
-	<div id="Mostrar" th:if="${src == 'mostrar'}">
-		<td th:if="${moneda != null}">
-			<h1>Moneda seleccionada</h1>
 
-			<p th:text="'Modelo:' + ${moneda.modelo}" />
-			<p th:text="'Valor:' + ${moneda.valor}" />
-			<p th:text="'Divisa:' + ${moneda.divisa}" /> <a href="/">Volver</a>
-		</td>
-		<td th:unless="${moneda != null}">
-			<h1>Moneda no encontrada</h1> <a href="/">Volver</a>
-		</td>
+	<div id="Mostrar" th:if="${src == 'mostrar'}">
+		<h1 th:if="${#lists.isEmpty(monedas)}">Moneda no encontrada</h1>
+		<div th:unless=="${#lists.isEmpty(monedas)}">
+			<h1>Moneda encontrada</h1>
+			<p th:each="moneda : ${monedas}">
+				<span th:text="'Modelo: ' + ${moneda.modelo}"></span><br /> <span
+					th:text="'Valor: ' + ${moneda.valor}"></span><br /> <span
+					th:text="'Divisa: ' + ${moneda.divisa}"></span><br /> <span
+					th:text="'Diámetro: ' + ${moneda.diametro}"></span><br /> <span
+					th:text="'Peso: ' + ${moneda.peso}"></span><br /> <span
+					th:text="'Composición: ' + ${moneda.composicion}"></span><br /> <span
+					th:text="'Descripción: ' + ${moneda.descripcion}"></span><br />
+			</p>
+		</div>
 	</div>
+	<a href="/">Volver</a>
 </body>
 </html>

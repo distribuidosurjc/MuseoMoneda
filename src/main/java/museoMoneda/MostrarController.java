@@ -25,11 +25,9 @@ public class MostrarController {
 			@PathVariable(value="src") String src,
 			String divisa, Model model) {
 
-		List<Moneda> listaMonedas = repMonedas.findByDivisa(divisa);
-		for(int i=0; i < listaMonedas.size() ; i++) {
-			model.addAttribute("moneda", listaMonedas.get(i));
-		}
-
+		
+		model.addAttribute("monedas", repMonedas.findByDivisa(divisa));
+		
 		return "buscarYmostrar";
 	}
 }
