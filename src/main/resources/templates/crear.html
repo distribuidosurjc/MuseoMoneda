@@ -2,166 +2,193 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Añadir a la base de datos</title>
 <link rel="stylesheet" type="text/css" href="../static/css/styles.css"
 	th:href="@{/css/styles.css}" />
 </head>
 
+<header class="contenedor fondo padding" id="cabecera">
+	<div class="centrado">
+		<a class="fondo" href="/"><h1 class="cabecera">Museo
+				Numismático de Móstoles</h1></a>
+	</div>
+</header>
+
 <body>
 
-	<div id="contenedor">
-		<div th:if="${src == 'moneda'}">
-			<div id="cabecera">
-				<h1>Añadir Moneda Nueva</h1>
-			</div>
-			<form action="/insertar/moneda" method="post">
-				<table>
-					<!-- 					<tr>
-						<td><label class="Etiquetas">Modelo:</label>
-						<td><input type='text' class="campos" name='modelo'
-							placeholder="Número de Serie" required /></td>
-						</td>
-					</tr>// -->
-					<tr>
-						<td><label class="Etiquetas">Valor Facial:</label>
-						<td><input type='number' class="campos" name='valor'
-							placeholder="Numero Entero" required /></td>
-						</td>
-					</tr>
-					<tr>
-						<td><label class="Etiquetas">Divisa:</label>
-						<td><input type='text' class="campos" name='divisa'
-							placeholder="Euro, dólar..." required /></td>
-						</td>
-					</tr>
-					<tr>
-						<td><label class="Etiquetas">Diámetro:</label>
-						<td><input type='text' class="campos" name='diametro'
-							placeholder="En milímetros" pattern="\d+([,\.']\d+)?" required /></td>
-						</td>
-					</tr>
-					<tr>
-						<td><label class="Etiquetas">Peso:</label>
-						<td><input type='text' class="campos" name='peso'
-							placeholder="En gramos" pattern="\d+([,\.']\d+)?" required /></td>
-						</td>
-					</tr>
-					<tr>
-						<td><label class="Etiquetas">Composición:</label>
-						<td><input type='text' class="campos" name='composicion'
-							placeholder="Zinc, Cobre..." required /></td>
-						</td>
-					</tr>
-					<tr>
-						<td><label class="Etiquetas">Descripción:</label>
-						<td><textarea name="descripcion" rows="4" cols="25"
-								placeholder="Información relevante de esta tirada de monedas."></textarea></td>
-						</td>
-					</tr>
-				</table>
-				<input type='submit' name='enviar' value='Enviar' />
-			</form>
-		</div>
+	<div class="margen-top">
+		<div class="columna">
+			<div class="borde contenedor" style="min-height: 460px">
 
-		<div th:if="${src == 'ejemplar'}">
-			<div id="cabecera">
-				<h1>Añadir Ejemplar Nuevo</h1>
-			</div>
-			<form action="/insertar/ejemplar" method="post">
-				<table>
-					<tr>
-						<td><label class="Etiquetas">Modelo:</label>
-						<td><input type='text' class="campos" name='modelo'
-							placeholder="Número de Serie" required /></td>
-						</td>
-					</tr>
-					<tr>
-						<td><label class="Etiquetas">Año:</label>
-						<td><input type='number' class="campos" name='año' max="2019"
-							placeholder="2019" required /></td>
-						</td>
-					</tr>
-					<tr>
-						<td><label class="Etiquetas">Ciudad de Acuñación:</label>
-						<td><input type='text' class="campos" name='ciudad'
-							placeholder="Madrid, Lisboa..." required /></td>
-						</td>
-					</tr>
-					<tr>
-						<td><label class="Etiquetas">Fecha de Adquisición:</label>
-						<td><input type='date' class="campos" name='fecha'
-							max="2019-06-01" required /></td>
-						</td>
-					</tr>
-					<tr>
-						<td><label class="Etiquetas">Estado de Conservación:</label>
-						<td><select required>
-								<option value="PRF">Pruebas</option>
-								<option value="FDC">Flor de Cuño</option>
-								<option value="SC">Sin Circular</option>
-								<option value="EBC">Excelente Buena Conservación</option>
-								<option value="MBC">Muy Buena Conservación</option>
-								<option value="BC+">Buena Conservación Plus</option>
-								<option value="BC">Buena Conservación</option>
-								<option value="RC">Regular Conservación</option>
-								<option value="MC">Mala Conservación</option>
-						</select></td>
-						<!-- 						<td><input type='text' class="campos" name='estado' required /></td> // -->
-						</td>
-					</tr>
-					<tr>
-						<td><label class="Etiquetas">Proveedor:</label>
-						<td><input type='text' class="campos" name='proveedor'
-							placeholder="CIF" required /></td>
-						</td>
-					</tr>
-				</table>
-				<input type='submit' name='enviar' value='Enviar' />
-			</form>
-		</div>
+				<!-- Aquí empezamos el contenido condicional -->
 
-		<div th:if="${src == 'proveedor'}">
-			<div id="cabecera">
-				<h1>Añadir Proveedor Nuevo</h1>
-			</div>
-			<form action="/insertar/proveedor" method="post">
-				<table>
-					<tr>
-						<td><label class="Etiquetas">CIF:</label>
-						<td><input type='text' class="campos" name='cif'
-							pattern="[A-Z]\d{7}([A-Z]|\d)" placeholder="A1234567B" required /></td>
-						</td>
-					</tr>
-					<tr>
-						<td><label class="Etiquetas">Nombre:</label>
-						<td><input type='text' class="campos" name='nombre'
-							placeholder="Proveedor SL" required /></td>
-						</td>
-					</tr>
-					<tr>
-						<td><label class="Etiquetas">Dirección Postal:</label>
-						<td><input type='text' class="campos" name='direccion'
-							placeholder="Calle Falsa 123" required /></td>
-						</td>
-					</tr>
-					<tr>
-						<td><label class="Etiquetas">E-Mail:</label>
-						<td><input type='text' class="campos" name='email'
-							placeholder="correo@empresa.dom" required /></td>
-						</td>
-					</tr>
-					<tr>
-						<td><label class="Etiquetas">Teléfono de Contacto:</label>
-						<td><input type='text' pattern="[0-9]{9}"
-							placeholder="123456789" class="campos" name='tlf' required /></td>
-						</td>
-					</tr>
-				</table>
-				<input type='submit' name='enviar' value='Enviar' />
-			</form>
-		</div>
+				<div th:if="${src == 'moneda'}">
+					<div id="cabecera" class="centrado">
+						<h3>Añadir Moneda Nueva</h3>
+						<img src="/img/moneda.png" alt="Moneda" height="120" width="120"><br>
+						<br>
+					</div>
+					<form id='insertar/moneda' action="/insertar/moneda" method="post">
+						<table>
+							<tr>
+								<td><label class="Etiquetas">Valor Facial:</label><td><input type='number' class="campos" name='valor'
+									placeholder="Numero Entero" required /></td></td>
+							</tr>
+							<tr>
+								<td><label class="Etiquetas">Divisa:</label>
+								<td><input type='text' class="campos" name='divisa'
+									placeholder="Euro, dólar..." required /></td>
+								</td>
+							</tr>
+							<tr>
+								<td><label class="Etiquetas">Diámetro:</label>
+								<td><input type='text' class="campos" name='diametro'
+									placeholder="En milímetros" pattern="\d+([,\.']\d+)?" required /></td>
+								</td>
+							</tr>
+							<tr>
+								<td><label class="Etiquetas">Peso:</label>
+								<td><input type='text' class="campos" name='peso'
+									placeholder="En gramos" pattern="\d+([,\.']\d+)?" required /></td>
+								</td>
+							</tr>
+							<tr>
+								<td><label class="Etiquetas">Composición:</label>
+								<td><input type='text' class="campos" name='composicion'
+									placeholder="Zinc, Cobre..." required /></td>
+								</td>
+							</tr>
+							<tr>
+								<td><label class="Etiquetas">Descripción:</label>
+								<td><textarea class="campos" name="descripcion" rows="3"
+										cols="20"
+										placeholder="Información relevante de esta tirada de monedas."></textarea></td>
+								</td>
+							</tr>
+						</table>
+						<div class='centrado'>
+							<a class="boton fondo"
+								onclick="document.getElementById('insertar/moneda').submit()">Enviar</a>
+							<a class="boton fondo" id="Volver" href="/">Volver</a>
+						</div>
+					</form>
+				</div>
 
-		<button id="Volver" onclick="location.href='http://localhost:8080/'">Volver</button>
-	</div>
+				<div th:if="${src == 'ejemplar'}">
+					<div id="cabecera" class="centrado">
+						<h3>Añadir Ejemplar Nuevo</h3>
+						<img src="/img/adquisicion.png" alt="Adquisicion" height="120"
+							width="120"><br> <br>
+					</div>
+					<form action="/insertar/ejemplar" method="post">
+						<table>
+							<tr>
+								<td><label class="Etiquetas">Modelo:</label>
+								<td><input type='text' class="campos" name='modelo'
+									placeholder="Número de Serie" required /></td>
+								</td>
+							</tr>
+							<tr>
+								<td><label class="Etiquetas">Año:</label>
+								<td><input type='number' class="campos" name='año'
+									max="2019" placeholder="2019" required /></td>
+								</td>
+							</tr>
+							<tr>
+								<td><label class="Etiquetas">Ciudad de Acuñación:</label>
+								<td><input type='text' class="campos" name='ciudad'
+									placeholder="Madrid, Lisboa..." required /></td>
+								</td>
+							</tr>
+							<tr>
+								<td><label class="Etiquetas">Fecha de Adquisición:</label>
+								<td><input type='date' class="campos" name='fecha'
+									max="2019-06-01" required /></td>
+								</td>
+							</tr>
+							<tr>
+								<td><label class="Etiquetas">Estado de
+										Conservación:</label>
+								<td><select required>
+										<option value="PRF">Pruebas</option>
+										<option value="FDC">Flor de Cuño</option>
+										<option value="SC">Sin Circular</option>
+										<option value="EBC">Excelente Buena Conservación</option>
+										<option value="MBC">Muy Buena Conservación</option>
+										<option value="BC+">Buena Conservación Plus</option>
+										<option value="BC">Buena Conservación</option>
+										<option value="RC">Regular Conservación</option>
+										<option value="MC">Mala Conservación</option>
+								</select></td>
+								</td>
+							</tr>
+							<tr>
+								<td><label class="Etiquetas">Proveedor:</label>
+								<td><input type='text' class="campos" name='proveedor'
+									placeholder="CIF" required /></td>
+								</td>
+							</tr>
+						</table>
+						<div class='centrado'>
+							<a class="boton fondo"
+								onclick="document.getElementById('insertar/moneda').submit()">Enviar</a>
+							<a class="boton fondo" id="Volver" href="/">Volver</a>
+						</div>
+					</form>
+				</div>
+
+				<div th:if="${src == 'proveedor'}">
+					<div id="cabecera" class="centrado">
+						<h3>Añadir Proveedor Nuevo</h3>
+						<img src="/img/proveedor.png" alt="Proveedor" height="120"
+							width="120"><br> <br>
+					</div>
+					<form action="/insertar/proveedor" method="post">
+						<table>
+							<tr>
+								<td><label class="Etiquetas">CIF:</label>
+								<td><input type='text' class="campos" name='cif'
+									pattern="[A-Z]\d{7}([A-Z]|\d)" placeholder="A1234567B" required /></td>
+								</td>
+							</tr>
+							<tr>
+								<td><label class="Etiquetas">Nombre:</label>
+								<td><input type='text' class="campos" name='nombre'
+									placeholder="Proveedor SL" required /></td>
+								</td>
+							</tr>
+							<tr>
+								<td><label class="Etiquetas">Dirección Postal:</label>
+								<td><input type='text' class="campos" name='direccion'
+									placeholder="Calle Falsa 123" required /></td>
+								</td>
+							</tr>
+							<tr>
+								<td><label class="Etiquetas">E-Mail:</label>
+								<td><input type='text' class="campos" name='email'
+									placeholder="correo@empresa.dom" required /></td>
+								</td>
+							</tr>
+							<tr>
+								<td><label class="Etiquetas">Teléfono de Contacto:</label>
+								<td><input type='text' pattern="[0-9]{9}"
+									placeholder="123456789" class="campos" name='tlf' required /></td>
+								</td>
+							</tr>
+						</table>
+						<div class='centrado'>
+							<a class="boton fondo"
+								onclick="document.getElementById('insertar/moneda').submit()">Enviar</a>
+							<a class="boton fondo" id="Volver" href="/">Volver</a>
+							
+							<!-- <input type='submit' class="boton fondo" name='enviar'
+								value='Enviar' /> <a class="boton fondo" id="Volver" href="/">Volver</a> -->
+						</div>
+					</form>
+				</div>
+
+			</div>
+		</div>
 </body>
 </html>

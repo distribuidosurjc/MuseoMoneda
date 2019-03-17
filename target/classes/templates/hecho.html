@@ -2,23 +2,31 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Se ha añadido a la base de datos</title>
 <link rel="stylesheet" type="text/css" href="../static/css/styles.css"
 	th:href="@{/css/styles.css}" />
 </head>
 
+<header class="contenedor fondo padding" id="cabecera">
+	<div class="centrado">
+		<a class="fondo" href="/"><h1 class="cabecera">Museo
+				Numismático de Móstoles</h1></a>
+	</div>
+</header>
+
 <body>
-	<div th:if="${src == 'moneda'}">
-		<p>Moneda añadida con Éxito</p>
-		<a href="/">Volver</a>
-	</div>
-	<div th:if="${src == 'ejemplar'}">
-		<p>Ejemplar añadido con Éxito</p>
-		<a href="/">Volver</a>
-	</div>
-	<div th:if="${src == 'proveedor'}">
-		<p>Proveedor añadido con Éxito</p>
-		<a href="/">Volver</a>
+	<div class="centrado margen-top">
+		<div th:if="${src == 'moneda'}" id="cabecera">
+			<h3>Moneda añadida con éxito</h3>
+		</div>
+		<div th:if="${src == 'ejemplar'}" id="cabecera">
+			<h3>Ejemplar añadido con éxito</h3>
+		</div>
+		<div th:if="${src == 'proveedor'}" id="cabecera">
+			<h3>Proveedor añadido con éxito</h3>
+		</div>
+		<a class="boton fondo" id="Volver" href="/">Volver</a>
 	</div>
 </body>
 </html>

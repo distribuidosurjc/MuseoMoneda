@@ -2,13 +2,25 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Error</title>
 <link rel="stylesheet" type="text/css" href="../static/css/styles.css"
 	th:href="@{/css/styles.css}" />
 </head>
 
+<header class="contenedor fondo padding" id="cabecera">
+	<div class="centrado">
+		<a class="fondo" href="/"><h1 class="cabecera">Museo
+				Numismático de Móstoles</h1></a>
+	</div>
+</header>
+
 <body>
-		<p>Ha ocurrido un error</p>
-		<a href="/">Volver a inicio</a>
+	<div class="centrado margen-top">
+		<div id="cabecera">
+			<h3>Ha ocurrido un error</h3>
+		</div>
+		<a class="boton fondo" id="Volver" href="/">Volver</a>
+	</div>
 </body>
 </html>

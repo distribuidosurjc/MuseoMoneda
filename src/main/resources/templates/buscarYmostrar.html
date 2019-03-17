@@ -2,34 +2,44 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Mostrar selección</title>
 <link rel="stylesheet" type="text/css" href="../static/css/styles.css"
 	th:href="@{/css/styles.css}" />
 </head>
 
-<body>
-	<div>
-		<form action="/buscar/mostrar" method="post">
-			<input id="buscador" type='search' class="campos" name='divisa'>
-			<input id="Buscar2" type='submit' name='buscar' value='Buscar'>
-		</form>
+<header class="contenedor fondo padding" id="cabecera">
+	<div class="centrado">
+		<a class="fondo" href="/"><h1 class="cabecera">Museo
+				Numismático de Móstoles</h1></a>
 	</div>
+</header>
 
-	<div id="Mostrar" th:if="${src == 'mostrar'}">
-		<h1 th:if="${#lists.isEmpty(monedas)}">Moneda no encontrada</h1>
-		<div th:unless=="${#lists.isEmpty(monedas)}">
-			<h1>Moneda encontrada</h1>
-			<p th:each="moneda : ${monedas}">
-				<span th:text="'Modelo: ' + ${moneda.modelo}"></span><br /> <span
-					th:text="'Valor: ' + ${moneda.valor}"></span><br /> <span
-					th:text="'Divisa: ' + ${moneda.divisa}"></span><br /> <span
-					th:text="'Diámetro: ' + ${moneda.diametro}"></span><br /> <span
-					th:text="'Peso: ' + ${moneda.peso}"></span><br /> <span
-					th:text="'Composición: ' + ${moneda.composicion}"></span><br /> <span
-					th:text="'Descripción: ' + ${moneda.descripcion}"></span><br />
-			</p>
+<body>
+	<div class="centrado margen-top">
+		<div>
+			<form action="/buscar/mostrar" method="post">
+				<input id="buscador" type='search' class="campos" name='divisa'>
+				<input id="Buscar2" type='submit' name='buscar' value='Buscar'>
+			</form>
 		</div>
+
+		<div id="Mostrar" th:if="${src == 'mostrar'}">
+			<h1 th:if="${#lists.isEmpty(monedas)}">Moneda no encontrada</h1>
+			<div th:unless=="${#lists.isEmpty(monedas)}">
+				<h3>Moneda encontrada</h3>
+				<p th:each="moneda : ${monedas}">
+					<span th:text="'Modelo: ' + ${moneda.modelo}"></span><br /> <span
+						th:text="'Valor: ' + ${moneda.valor}"></span><br /> <span
+						th:text="'Divisa: ' + ${moneda.divisa}"></span><br /> <span
+						th:text="'Diámetro: ' + ${moneda.diametro}"></span><br /> <span
+						th:text="'Peso: ' + ${moneda.peso}"></span><br /> <span
+						th:text="'Composición: ' + ${moneda.composicion}"></span><br /> <span
+						th:text="'Descripción: ' + ${moneda.descripcion}"></span><br />
+				</p>
+			</div>
+		</div>
+		<a class="boton fondo" id="Volver" href="/">Volver</a>
 	</div>
-	<a href="/">Volver</a>
 </body>
 </html>

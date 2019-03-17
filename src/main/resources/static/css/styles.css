@@ -1,113 +1,124 @@
-html{
-	box-sizing:border-box;
-	-ms-text-size-adjust:100%;
-	-webkit-text-size-adjust:100%;
-	overflow-x:hidden;
-	}
-	
-*,*:before,*:after{
-	box-sizing:inherit
-	}	
-	
-body{
-	margin:0
-	}
-	
-html,body{
-	font-family:Verdana,sans-serif;font-size:15px;line-height:1.5
-	}
-	
-h1{
-	font-size:36px
-	}
+html {
+	box-sizing: border-box;
+	-ms-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+	overflow-x: hidden;
+}
 
-h2{
-	font-size:30px
-	}
+*, *:before, *:after {
+	box-sizing: inherit
+}
 
-h3{
-	font-size:24px
-	}
-		
-h1,h2,h3{
-	font-family:"Segoe UI",Arial,sans-serif;
-	font-weight:400;
-	margin:10px;
-	}
+body {
+	margin: 0
+}
 
-img{
-	vertical-align:middle;
-	}
-	
-.boton{
-	border:none;
-	display:inline-block;
-	padding:8px 16px;
-	vertical-align:middle;
-	overflow:hidden;
-	text-decoration:none;
-	color:inherit;
-	background-color:inherit;
-	text-align:center;
-	cursor:pointer;
-	white-space:nowrap
-	}
-	
-.columna{
-	float:left;
-	width:33.33333%;
-	padding:0 8px;
-	}
-	
+html, body {
+	font-family: Verdana, sans-serif;
+	font-size: 15px;
+	line-height: 1.5
+}
 
-.contenedor{
-	padding:0.01em 16px
-	}
+h1 {
+	font-size: 36px
+}
 
-.padding{
-	padding:8px 16px
-	}
+h2 {
+	font-size: 30px
+}
 
-.boton:hover{
-	color:#000;
-	background-color:#ccc
-	}
-	
+h3 {
+	font-size: 24px
+}
+
+h1, h2, h3 {
+	font-family: "Segoe UI", Arial, sans-serif;
+	font-weight: 400;
+	margin: 10px;
+}
+
+img {
+	vertical-align: middle;
+}
+
+a {
+	text-decoration: none;
+}
+
+.boton {
+	border: none;
+	display: inline-block;
+	padding: 8px 16px;
+	vertical-align: middle;
+	overflow: hidden;
+	text-decoration: none;
+	text-align: center;
+	cursor: pointer;
+	white-space: nowrap
+}
+
+.columna {
+	float: left;
+	width: 33.33333%;
+	padding: 0 8px;
+}
+
+.contenedor {
+	padding: 0.01em 16px
+}
+
+.padding {
+	padding: 8px 16px
+}
+
+.boton:hover {
+	color: #000;
+	background-color: #ccc
+}
+
 .fondo {
-	color:#fff;
-	background-color:#009688
-	}
+	color: #fff;
+	background-color: #009688
+}
 
 /*#607d8b*/
+.borde {
+	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0
+		rgba(0, 0, 0, 0.12)
+}
 
-.borde{
-	box-shadow:0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)
-	}
+.cabecera {
+	font-size: 48px
+}
+
+.centrado {
+	text-align: center
+}
+
+.izquierda {
+	text-align: left
+}
+
+.derecha {
+	text-align: right
+}
+
+.margen {
+	margin: 16px
+}
+
+.margen-top {
+	margin-top: 16px
+}
+
+.margen-bottom {
+	margin-bottom: 16px
+}
+
+.Etiquetas {
 	
-.cabecera{
-	font-size:48px
-	}
+}
+
+.campos {
 	
-.centrado{
-	text-align:center
-	}
-	
-.izquierda{
-	text-align:left
-	}
-
-.derecha{
-	text-align:right
-	}
-
-.margen{
-	margin:16px
-	}
-
-.margen-top{
-	margin-top:16px
-	}
-
-.margen-bottom{
-	margin-bottom:16px
-	}
+}
