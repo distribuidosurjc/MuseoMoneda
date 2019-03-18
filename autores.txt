@@ -1,0 +1,31 @@
+Un fichero autores.txt donde se especifique elnombre, apellidos y DNI de los miembros del grupo,
+y cual ha sido la participación concreta de cada uno en el trabajo.
+No es necesario que las tareas se repartan individualmente, sólo explicar cómo se han repartido.
+
+Nombre completo: Christian Fabian Díaz Silva
+DNI: 40539112W
+Correo: cf.diaz.2017@alumnos.urjc.es
+Participación:
+- Modelado de Base de Datos y creación de proyecto compartido en git.
+- Implementación Tabla de Monedas (Moneda.java y MonedaRepository.java).
+- Implementación IndexController.java, InsertarController.java, error.html, hecho.html, index.html...
+- Trabajado en styles.css, MostrarController.java, crear.html, buscarYmostrar.html...
+- Búsqueda y adaptación de recursos visuales.
+
+Nombre completo: Sergio
+DNI: 
+Correo: 
+Participación:
+- 
+
+Nombre completo: Guillermo
+DNI: 
+Correo: 
+Participación:
+- 
+
+Nombre completo: Daniel
+DNI: 
+Correo: 
+Participación:
+- 
