@@ -29,9 +29,13 @@ public class MostrarController {
 			@PathVariable(value="av") String av,
 			String divisa, int valor,  Model model) {
 		
-		System.out.println(Integer.toString(valor));
-		
-		model.addAttribute("monedas", repMonedas.findByDivisa(divisa));
+		if(valor==0) {
+			model.addAttribute("monedas", repMonedas.findByDivisa(divisa));
+		}else if(divisa==null) {
+			model.addAttribute("monedas", repMonedas.findByValor(valor));
+		}else {
+			model.addAttribute("monedas", repMonedas.findByDivisaAndValor(divisa, valor));
+		}
 		
 		return "buscarYmostrar";
 	}
