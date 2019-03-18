@@ -5,7 +5,8 @@ Tareas Pendientes
 --------  Parte CSS   --------
 
 --------  Parte BD    --------
-
+Base de datos Ejemplar
+Base de datos Proveedor
 --------  Parte Java  --------
-
+Controlador Insertar
 --------  Parte Ej    --------
