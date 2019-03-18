@@ -1,5 +1,10 @@
 package museoMoneda;
 
-public interface ProveedorRepository {
+import java.util.List;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface ProveedorRepository extends JpaRepository<Proveedor, String>{
+	List<Proveedor> findByCif(String cif);
+	List<Proveedor> findByNombre(String nombre);
 }
