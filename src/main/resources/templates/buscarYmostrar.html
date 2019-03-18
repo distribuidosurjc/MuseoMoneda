@@ -17,26 +17,51 @@
 
 <body>
 	<div class="centrado margen-top">
-		<div>
-			<form action="/buscar/mostrar" method="post">
-				<input id="buscador" type='search' class="campos" name='divisa'>
-				<input id="Buscar2" type='submit' name='buscar' value='Buscar'>
-			</form>
-		</div>
+		<div th:if="${src == 'moneda'}" &or; "${src == 'moneda+'}">
+			<div>
+				<form action="/buscar/moneda/on/mon" method="post">
+					<input id="buscador" type='search' class="campos" name='divisa'>
+					<input id="Buscar2" type='submit' name='buscar' value='Buscar'>
+				</form>
+			</div>
 
-		<div id="Mostrar" th:if="${src == 'mostrar'}">
-			<h1 th:if="${#lists.isEmpty(monedas)}">Moneda no encontrada</h1>
-			<div th:unless=="${#lists.isEmpty(monedas)}">
-				<h3>Moneda encontrada</h3>
-				<p th:each="moneda : ${monedas}">
-					<span th:text="'Modelo: ' + ${moneda.modelo}"></span><br /> <span
-						th:text="'Valor: ' + ${moneda.valor}"></span><br /> <span
-						th:text="'Divisa: ' + ${moneda.divisa}"></span><br /> <span
-						th:text="'Diámetro: ' + ${moneda.diametro}"></span><br /> <span
-						th:text="'Peso: ' + ${moneda.peso}"></span><br /> <span
-						th:text="'Composición: ' + ${moneda.composicion}"></span><br /> <span
-						th:text="'Descripción: ' + ${moneda.descripcion}"></span><br />
-				</p>
+			<div id="Mostrar" th:if="${av == 'on'}">
+				<h1 th:if="${#lists.isEmpty(monedas)}">Moneda no encontrada</h1>
+				<div th:unless=="${#lists.isEmpty(monedas)}">
+					<h3>Moneda encontrada</h3>
+					<p th:each="moneda : ${monedas}">
+						<span th:text="'Modelo: ' + ${moneda.modelo}"></span><br /> <span
+							th:text="'Valor: ' + ${moneda.valor}"></span><br /> <span
+							th:text="'Divisa: ' + ${moneda.divisa}"></span><br /> <span
+							th:text="'Diámetro: ' + ${moneda.diametro}"></span><br /> <span
+							th:text="'Peso: ' + ${moneda.peso}"></span><br /> <span
+							th:text="'Composición: ' + ${moneda.composicion}"></span><br /> <span
+							th:text="'Descripción: ' + ${moneda.descripcion}"></span><br />
+					</p>
+				</div>
+			</div>
+		</div>
+		
+		<div th:if="${src == 'proveedor'}">
+			<div>
+				<form action="/buscar/proveedor/on/pro" method="post">
+					<input id="buscador" type='search' class="campos" name='nombre'>
+					<input id="Buscar2" type='submit' name='buscar' value='Buscar'>
+				</form>
+			</div>
+
+			<div id="Mostrar" th:if="${av == 'on'}">
+				<h1 th:if="${#lists.isEmpty(proveedores)}">proveedor no encontrado</h1>
+				<div th:unless=="${#lists.isEmpty(proveedor)}">
+					<h3>proveedor encontrado</h3>
+					<p th:each="proveedor : ${proveedores}">
+						<span th:text="'CIF: ' + ${proveedor.cif}"></span><br /> <span
+							th:text="'Nombre: ' + ${proveedor.nombre}"></span><br /> <span
+							th:text="'Direccion Postal: ' + ${proveedor.direccionPostal}"></span><br /> <span
+							th:text="'Email: ' + ${proveedor.email}"></span><br /> <span
+							th:text="'Telefono: ' + ${proveedor.tlf}"></span><br />
+					</p>
+				</div>
 			</div>
 		</div>
 		<a class="boton fondo" id="Volver" href="/">Volver</a>

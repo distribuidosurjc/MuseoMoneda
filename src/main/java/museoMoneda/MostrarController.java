@@ -15,18 +15,33 @@ public class MostrarController {
 	
 	@Autowired
 	public MonedaRepository repMonedas;
+	public ProveedorRepository repProveedor;
 
-	@RequestMapping("/buscar")
-	public String buscar(Model model) {
+	@RequestMapping("/buscar/{src}")
+	public String buscar(
+			@PathVariable(value="src") String src,
+			Model model) {
 		return "buscarYmostrar";
 	}
-	@RequestMapping("/buscar/{src}")
-	public String buscado(
+	@RequestMapping("/buscar/{src}/{av}/mon")
+	public String buscadoMoneda(
 			@PathVariable(value="src") String src,
+			@PathVariable(value="av") String av,
 			String divisa, Model model) {
 
 		
 		model.addAttribute("monedas", repMonedas.findByDivisa(divisa));
+		
+		return "buscarYmostrar";
+	}
+	@RequestMapping("/buscar/{src}/{av}/pro")
+	public String buscadoProveedor(
+			@PathVariable(value="src") String src,
+			@PathVariable(value="av") String av,
+			String nombre, Model model) {
+
+		
+		model.addAttribute("proveedores", repProveedor.findByNombre(nombre));
 		
 		return "buscarYmostrar";
 	}
