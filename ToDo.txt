@@ -1,0 +1,11 @@
+Tareas Pendientes
+
+--------  Parte HTML  --------
+
+--------  Parte CSS   --------
+
+--------  Parte BD    --------
+
+--------  Parte Java  --------
+
+--------  Parte Ej    --------
