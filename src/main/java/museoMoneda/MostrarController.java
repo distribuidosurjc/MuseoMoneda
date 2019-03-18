@@ -27,8 +27,9 @@ public class MostrarController {
 	public String buscadoMoneda(
 			@PathVariable(value="src") String src,
 			@PathVariable(value="av") String av,
-			String divisa, Model model) {
-
+			String divisa, int valor,  Model model) {
+		
+		System.out.println(Integer.toString(valor));
 		
 		model.addAttribute("monedas", repMonedas.findByDivisa(divisa));
 		
