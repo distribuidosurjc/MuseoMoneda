@@ -81,7 +81,7 @@
 						<img src="/img/adquisicion.png" alt="Adquisicion" height="120"
 							width="120"><br> <br>
 					</div>
-					<form action="/insertar/ejemplar" method="post">
+					<form id='insertar/ejemplar' action="/insertar/ejemplar" method="post">
 						<table>
 							<tr>
 								<td><label class="Etiquetas">Modelo:</label>
@@ -144,7 +144,7 @@
 						<img src="/img/proveedor.png" alt="Proveedor" height="120"
 							width="120"><br> <br>
 					</div>
-					<form action="/insertar/proveedor" method="post">
+					<form id='insertar/proveedor' action="/insertar/proveedor" method="post">
 						<table>
 							<tr>
 								<td><label class="Etiquetas">CIF:</label>
@@ -160,7 +160,7 @@
 							</tr>
 							<tr>
 								<td><label class="Etiquetas">Dirección Postal:</label>
-								<td><input type='text' class="campos" name='direccion'
+								<td><input type='text' class="campos" name='direccionPostal'
 									placeholder="Calle Falsa 123" required /></td>
 								</td>
 							</tr>
@@ -179,7 +179,7 @@
 						</table>
 						<div class='centrado'>
 							<a class="boton fondo"
-								onclick="document.getElementById('insertar/moneda').submit()">Enviar</a>
+								onclick="document.getElementById('insertar/proveedor').submit()">Enviar</a>
 							<a class="boton fondo" id="Volver" href="/">Volver</a>
 							
 							<!-- <input type='submit' class="boton fondo" name='enviar'
