@@ -38,7 +38,6 @@
 			<div id="Mostrar" th:if="${av == 'on'}">
 				<h1 th:if="${#lists.isEmpty(monedas)}">Moneda no encontrada</h1>
 				<div th:unless=="${#lists.isEmpty(monedas)}">
-					<p th:text="'Hello, '+ ${name}" />
 					<h3>Moneda encontrada</h3>
 					<table class="egt">
 						<tr>

@@ -49,17 +49,15 @@ public class MostrarController {
 		} else {
 			lista = repMonedas.findByDivisaAndValor(divisa, Integer.parseInt(valor));
 		}
-		System.out.println(valor);
-		if(orden=="Divisa") {
+		if(orden.equals("Divisa")) {
 			lista.sort(cmpMonDivisa);
-		}else if(orden=="Valor Facial") {
+		}else if(orden.equals("Valor Facial")) {
 			lista.sort(cmpMonValor);
-		}else if(orden=="Peso") {
+		}else if(orden.equals("Peso")) {
 			lista.sort(cmpMonPeso);
 		}else {
-			lista.sort(cmpMonPeso);
+			lista.sort(cmpMonDiametro);
 		}
-		model.addAttribute("name", orden);
 		model.addAttribute("monedas", lista);
 
 		return "buscarYmostrar";
