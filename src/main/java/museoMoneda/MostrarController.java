@@ -1,6 +1,7 @@
 package museoMoneda;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class MostrarController {
+	
+	/*
+	 * 		Comparator<Moneda> cmpMonValor = (m1,m2)->m1.getValor() - m2.getValor();
+		Comparator<Moneda> cmpMonDivisa = (m1,m2)->m1.getDivisa().compareTo(m2.getDivisa());
+		Comparator<Moneda> cmpMonDiametro = (m1,m2)-> (m1.getDiametro() == m2.getDiametro()) ? 0 : (m1.getDiametro() < m2.getDiametro())? -1 : 1 ;
+		Comparator<Moneda> cmpMonPeso = (m1,m2)-> (m1.getPeso() == m2.getPeso()) ? 0 : (m1.getPeso() < m2.getPeso())? -1 : 1 ;
+
+		Comparator<Proveedor> cmpPrvCIF = (p1, p2) -> p1.get
+		Comparator<Proveedor> cmpPrvNombre = (p1, p2) -> p1.get
+	 */
 	
 	@Autowired
 	public MonedaRepository repMonedas;

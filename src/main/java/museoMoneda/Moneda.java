@@ -6,7 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Moneda {
+public class Moneda implements Comparable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -93,6 +93,14 @@ public class Moneda {
 
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
+	}
+
+	@Override
+	public int compareTo(Object arg0) {
+		Moneda m = (Moneda) arg0;
+		
+		
+		return 0;
 	}
 	
 	
