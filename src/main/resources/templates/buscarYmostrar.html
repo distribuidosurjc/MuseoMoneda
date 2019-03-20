@@ -25,6 +25,10 @@
 					<input id="buscador" type='search' class="campos" name='valor'
 							placeholder="Valor Facial">
 					<input id="Buscar2" type='submit' class="boton fondo" name='buscar' value='Buscar'>
+					<select name='Orden'>
+						<option>Divisa</option>
+						<option>Valor Facial</option>
+					</select>
 				</form>
 			</div>
 
@@ -32,15 +36,30 @@
 				<h1 th:if="${#lists.isEmpty(monedas)}">Moneda no encontrada</h1>
 				<div th:unless=="${#lists.isEmpty(monedas)}">
 					<h3>Moneda encontrada</h3>
-					<p th:each="moneda : ${monedas}">
-						<span th:text="'Modelo: ' + ${moneda.modelo}"></span><br /> <span
-							th:text="'Valor: ' + ${moneda.valor}"></span><br /> <span
-							th:text="'Divisa: ' + ${moneda.divisa}"></span><br /> <span
-							th:text="'Diámetro: ' + ${moneda.diametro}"></span><br /> <span
-							th:text="'Peso: ' + ${moneda.peso}"></span><br /> <span
-							th:text="'Composición: ' + ${moneda.composicion}"></span><br /> <span
-							th:text="'Descripción: ' + ${moneda.descripcion}"></span><br />
-					</p>
+					<table class="egt">
+						<tr>
+							<th scope="row">Modelo</th>
+							<th>Valor</th>
+							<th>Divisa</th>
+							<th>Diámetro</th>
+							<th>Peso</th>
+							<th>Composición</th>
+							<th>Descripción</th>
+							<th></th>
+						</tr>
+						<p th:each="moneda : ${monedas}">
+						<tr>
+							<th><span th:text="${moneda.modelo}"></span></th>
+							<td><span th:text="${moneda.valor}"></span></td>
+							<td><span th:text="${moneda.divisa}"></span></td>
+							<td><span th:text="${moneda.diametro}"></span></td>
+							<td><span th:text="${moneda.peso}"></span></td>
+							<td><span th:text="${moneda.composicion}"></span></td>
+							<td><span th:text="${moneda.descripcion}"></span></td>
+							<td><a th:href="@{/modificar(${moneda.modelo})}">Modificar</a></td>
+						</tr>
+						</p>
+					</table>
 				</div>
 			</div>
 		</div>
