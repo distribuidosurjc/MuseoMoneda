@@ -29,7 +29,7 @@ public class MostrarController {
 	public String buscadoMoneda(
 			@PathVariable(value="src") String src,
 			@PathVariable(value="av") String av,
-			String divisa, String valor,  Model model) {
+			String divisa, String valor, String orden,  Model model) {
 
 		Comparator<Moneda> cmpMonValor = (m1,m2)->m1.getValor() - m2.getValor();
 		Comparator<Moneda> cmpMonDivisa = (m1,m2)->m1.getDivisa().compareTo(m2.getDivisa());
@@ -44,14 +44,23 @@ public class MostrarController {
 
 		if(valor=="") {
 			lista = repMonedas.findByDivisa(divisa);
-			model.addAttribute("monedas", lista);
 		} else if(divisa=="") {
 			lista = repMonedas.findByValor(Integer.parseInt(valor));
-			model.addAttribute("monedas", lista);
 		} else {
 			lista = repMonedas.findByDivisaAndValor(divisa, Integer.parseInt(valor));
-			model.addAttribute("monedas", lista);
 		}
+		System.out.println(valor);
+		if(orden=="Divisa") {
+			lista.sort(cmpMonDivisa);
+		}else if(orden=="Valor Facial") {
+			lista.sort(cmpMonValor);
+		}else if(orden=="Peso") {
+			lista.sort(cmpMonPeso);
+		}else {
+			lista.sort(cmpMonPeso);
+		}
+		model.addAttribute("name", orden);
+		model.addAttribute("monedas", lista);
 
 		return "buscarYmostrar";
 	}

@@ -25,9 +25,12 @@
 					<input id="buscador" type='search' class="campos" name='valor'
 							placeholder="Valor Facial">
 					<input id="Buscar2" type='submit' class="boton fondo" name='buscar' value='Buscar'>
-					<select name='Orden'>
+					<p>Ordenar por:  </p>
+					<select name='orden'>
 						<option>Divisa</option>
 						<option>Valor Facial</option>
+						<option>Peso</option>
+						<option>Diámetro</option>
 					</select>
 				</form>
 			</div>
@@ -35,6 +38,7 @@
 			<div id="Mostrar" th:if="${av == 'on'}">
 				<h1 th:if="${#lists.isEmpty(monedas)}">Moneda no encontrada</h1>
 				<div th:unless=="${#lists.isEmpty(monedas)}">
+					<p th:text="'Hello, '+ ${name}" />
 					<h3>Moneda encontrada</h3>
 					<table class="egt">
 						<tr>
