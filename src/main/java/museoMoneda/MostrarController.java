@@ -15,6 +15,7 @@ public class MostrarController {
 	
 	@Autowired
 	public MonedaRepository repMonedas;
+	@Autowired
 	public ProveedorRepository repProveedor;
 
 	@RequestMapping("/buscar/{src}")
@@ -44,7 +45,6 @@ public class MostrarController {
 			@PathVariable(value="src") String src,
 			@PathVariable(value="av") String av,
 			String nombre, Model model) {
-
 		
 		model.addAttribute("proveedores", repProveedor.findByNombre(nombre));
 		

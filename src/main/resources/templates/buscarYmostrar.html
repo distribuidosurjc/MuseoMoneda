@@ -17,14 +17,14 @@
 
 <body>
 	<div class="centrado margen-top">
-		<div th:if="${src == 'moneda'}" &or; "${src == 'moneda+'}">
+		<div th:if="${src == 'moneda'}">
 			<div>
 				<form action="/buscar/moneda/on/mon" method="post">
 					<input id="buscador" type='search' class="campos" name='divisa'
 							placeholder="Divisa">
 					<input id="buscador" type='search' class="campos" name='valor'
 							placeholder="Valor Facial">
-					<input id="Buscar2" type='submit' name='buscar' value='Buscar'>
+					<input id="Buscar2" type='submit' class="boton fondo" name='buscar' value='Buscar'>
 				</form>
 			</div>
 
@@ -49,14 +49,14 @@
 			<div>
 				<form action="/buscar/proveedor/on/pro" method="post">
 					<input id="buscador" type='search' class="campos" name='nombre'>
-					<input id="Buscar2" type='submit' name='buscar' value='Buscar'>
+					<input id="Buscar2" class="boton fondo" type='submit' name='buscar' value='Buscar'>
 				</form>
 			</div>
 
 			<div id="Mostrar" th:if="${av == 'on'}">
 				<h1 th:if="${#lists.isEmpty(proveedores)}">proveedor no encontrado</h1>
-				<div th:unless=="${#lists.isEmpty(proveedor)}">
-					<h3>proveedor encontrado</h3>
+				<div th:unless=="${#lists.isEmpty(proveedores)}">
+					<h3>Proveedor encontrado</h3>
 					<p th:each="proveedor : ${proveedores}">
 						<span th:text="'CIF: ' + ${proveedor.cif}"></span><br /> <span
 							th:text="'Nombre: ' + ${proveedor.nombre}"></span><br /> <span
@@ -67,7 +67,7 @@
 				</div>
 			</div>
 		</div>
-		<a class="boton fondo" id="Volver" href="/">Volver</a>
+		<br><a class="boton fondo" id="Volver" href="/">Volver</a>
 	</div>
 </body>
 </html>

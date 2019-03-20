@@ -32,8 +32,10 @@
 					<form id='insertar/moneda' action="/insertar/moneda" method="post">
 						<table>
 							<tr>
-								<td><label class="Etiquetas">Valor Facial:</label><td><input type='number' class="campos" name='valor'
-									placeholder="Numero Entero" required /></td></td>
+								<td><label class="Etiquetas">Valor Facial:</label>
+								<td><input type='number' class="campos" name='valor'
+									placeholder="Numero Entero" required /></td>
+								</td>
 							</tr>
 							<tr>
 								<td><label class="Etiquetas">Divisa:</label>
@@ -68,9 +70,8 @@
 							</tr>
 						</table>
 						<div class='centrado'>
-							<a class="boton fondo"
-								onclick="document.getElementById('insertar/moneda').submit()">Enviar</a>
-							<a class="boton fondo" id="Volver" href="/">Volver</a>
+							<input type='submit' class="boton fondo" name='enviar'
+								value='Enviar' />
 						</div>
 					</form>
 				</div>
@@ -81,7 +82,8 @@
 						<img src="/img/adquisicion.png" alt="Adquisicion" height="120"
 							width="120"><br> <br>
 					</div>
-					<form id='insertar/ejemplar' action="/insertar/ejemplar" method="post">
+					<form id='insertar/ejemplar' action="/insertar/ejemplar"
+						method="post">
 						<table>
 							<tr>
 								<td><label class="Etiquetas">Modelo:</label>
@@ -131,9 +133,8 @@
 							</tr>
 						</table>
 						<div class='centrado'>
-							<a class="boton fondo"
-								onclick="document.getElementById('insertar/moneda').submit()">Enviar</a>
-							<a class="boton fondo" id="Volver" href="/">Volver</a>
+							<input type='submit' class="boton fondo" name='enviar'
+								value='Enviar' />
 						</div>
 					</form>
 				</div>
@@ -144,7 +145,8 @@
 						<img src="/img/proveedor.png" alt="Proveedor" height="120"
 							width="120"><br> <br>
 					</div>
-					<form id='insertar/proveedor' action="/insertar/proveedor" method="post">
+					<form id='insertar/proveedor' action="/insertar/proveedor"
+						method="post">
 						<table>
 							<tr>
 								<td><label class="Etiquetas">CIF:</label>
@@ -160,8 +162,8 @@
 							</tr>
 							<tr>
 								<td><label class="Etiquetas">Dirección Postal:</label>
-								<td><input type='text' class="campos" name='direccionPostal'
-									placeholder="Calle Falsa 123" required /></td>
+								<td><input type='text' class="campos"
+									name='direccionPostal' placeholder="Calle Falsa 123" required /></td>
 								</td>
 							</tr>
 							<tr>
@@ -178,16 +180,14 @@
 							</tr>
 						</table>
 						<div class='centrado'>
-							<a class="boton fondo"
-								onclick="document.getElementById('insertar/proveedor').submit()">Enviar</a>
-							<a class="boton fondo" id="Volver" href="/">Volver</a>
-							
-							<!-- <input type='submit' class="boton fondo" name='enviar'
-								value='Enviar' /> <a class="boton fondo" id="Volver" href="/">Volver</a> -->
+							<input type='submit' class="boton fondo" name='enviar'
+								value='Enviar' />
 						</div>
 					</form>
 				</div>
-
+			</div>
+			<div class="centrado">
+				<a class="boton fondo centrado" id="Volver" href="/">Volver</a>
 			</div>
 		</div>
 </body>
