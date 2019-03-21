@@ -70,9 +70,16 @@
 		<div th:if="${src == 'proveedor'}">
 			<div>
 				<form action="/buscar/proveedor/on/pro" method="post">
-					<input id="buscador" type='search' class="campos" name='nombre'>
-					<input id="buscador" type='search' class="campos" name='cif'>
+					<input id="buscador" type='search' class="campos" name='nombre'
+							placeholder="Nombre">
+					<input id="buscador" type='search' class="campos" name='cif'
+							placeholder="CIF">
 					<input id="Buscar2" class="boton fondo" type='submit' name='buscar' value='Buscar'>
+					<p>Ordenar por:  </p>
+					<select name='orden'>
+						<option>CIF</option>
+						<option>Nombre</option>
+					</select>
 				</form>
 			</div>
 

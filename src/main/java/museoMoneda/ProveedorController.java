@@ -13,10 +13,12 @@ public class ProveedorController {
 	
 	@RequestMapping("/insertar/proveedor")
 	public String insertar(Proveedor proveedor, Model model) {
-
+		if(! repProveedor.existsById(proveedor.getCif())){
 			repProveedor.save(proveedor);
+			return  "hecho";
+		}else {
+			return "error";
+		}
 
-
-		return "hecho";
 	}
 }

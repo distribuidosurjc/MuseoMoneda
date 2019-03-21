@@ -35,12 +35,8 @@ public class MostrarController {
 		Comparator<Moneda> cmpMonDivisa = (m1,m2)->m1.getDivisa().compareTo(m2.getDivisa());
 		Comparator<Moneda> cmpMonDiametro = (m1,m2)-> (m1.getDiametro() == m2.getDiametro()) ? 0 : (m1.getDiametro() < m2.getDiametro())? -1 : 1 ;
 		Comparator<Moneda> cmpMonPeso = (m1,m2)-> (m1.getPeso() == m2.getPeso()) ? 0 : (m1.getPeso() < m2.getPeso())? -1 : 1 ;
-		Comparator<Proveedor> seleccionado;
-
-		// Faltaría preparar el seleccionado
 
 		List<Moneda> lista;
-		//lista.sort(seleccionado);
 
 		if(valor=="") {
 			lista = repMonedas.findByDivisa(divisa);
@@ -72,17 +68,28 @@ public class MostrarController {
 	public String buscadoProveedor(
 			@PathVariable(value="src") String src,
 			@PathVariable(value="av") String av,
-			String nombre, Model model) {
+			String nombre, String cif, String orden,  Model model) {
 
 		Comparator<Proveedor> cmpPrvCIF = (p1, p2) -> p1.getCif().compareTo(p2.getCif());
 		Comparator<Proveedor> cmpPrvNombre = (p1, p2) -> p1.getNombre().compareTo(p2.getNombre());
-		Comparator<Proveedor> seleccionado;
 
+		List<Proveedor> lista;
 
-		// Faltaría preparar el seleccionado
-
-		List<Proveedor> lista = repProveedor.findByNombre(nombre);
-		//lista.sort(seleccionado);
+		if(cif=="") {
+			lista = repProveedor.findByNombre(nombre);
+		}else if(nombre=="") {
+			lista = repProveedor.findByCif(cif);
+		}else {
+			lista = repProveedor.findByCifAndNombre(cif, nombre);
+		}
+		
+		switch(orden) {
+		case "CIF":
+			lista.sort(cmpPrvCIF);
+			break;
+		default:
+			lista.sort(cmpPrvNombre);
+		}
 
 		model.addAttribute("proveedores", lista);
 
