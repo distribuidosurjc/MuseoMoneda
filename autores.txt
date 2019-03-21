@@ -12,13 +12,13 @@ Participación:
 - Trabajado en styles.css, MostrarController.java, crear.html, buscarYmostrar.html...
 - Búsqueda y adaptación de recursos visuales.
 
-Nombre completo: Sergio
-DNI: 
-Correo: 
+Nombre completo: Sergio Palacios Gil
+DNI: 48161205X
+Correo: s.palaciosg@alumnos.urjc.es
 Participación:
-- 
-
-eeeeeeeeeeeeeeeeeee
+- Implementacion de BuscarYmostrar.html, MostrarController.java
+- Trabajado en style.css, EjemplarRepository.java, error.html, ...
+- Guia espiritual del equipo y encargado de marketing.
 
 Nombre completo: Guillermo
 DNI: 
