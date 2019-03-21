@@ -31,7 +31,11 @@ h3 {
 	font-size: 24px
 }
 
-h1, h2, h3 {
+h4 {
+	font-size: 18px
+}
+
+h1, h2, h3, h4 {
 	font-family: "Segoe UI", Arial, sans-serif;
 	font-weight: 400;
 	margin: 10px;
@@ -45,27 +49,33 @@ a {
 	text-decoration: none;
 }
 
-table {
-  position: relative;
-  left: 250px;
-  border-collapse: collapse;
-  width: 60%;
+table.seleccionadas {
+	position: relative;
+	left: 250px;
+	border-collapse: collapse;
+	width: 60%;
 }
 
-th, td {
-  padding: 8px;
+table.seleccionadas tr:nth-child(even) {
+	background-color: #f2f2f2
 }
 
+table.seleccionadas th, table.seleccionadas td {
+	padding: 8px;
+}
 
-tr:nth-child(even){background-color: #f2f2f2}
+table.seleccionadas th {
+	background-color: #009688;
+	color: white;
+	border-bottom: black 1px solid;
+	border-right: black 1px solid;
+}
 
-th {
-  background-color: #009688;
-  color: white;
-  border-bottom: black 1px solid;
-  border-right: black 1px solid;
-  
-  
+table.seleccionadas td:first-child {
+	background-color: #15bfaf;
+	color: white;
+	border-bottom: black 1px solid;
+	border-right: black 1px solid;
 }
 
 .boton {
@@ -136,12 +146,4 @@ th {
 
 .margen-bottom {
 	margin-bottom: 16px
-}
-
-.Etiquetas {
-	
-}
-
-.campos {
-	
 }

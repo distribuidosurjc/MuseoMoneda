@@ -15,9 +15,11 @@ public class ProveedorController {
 	public String insertar(Proveedor proveedor, Model model) {
 		if(! repProveedor.existsById(proveedor.getCif())){
 			repProveedor.save(proveedor);
+			String src = "proveedor";
+			model.addAttribute("src", src);
 			return  "hecho";
 		}else {
-			model.addAttribute("error", "No se pudo añadir porque ya existe un proveedor con ese cif");
+			model.addAttribute("error", "No se pudo añadir porque ya existe un proveedor con ese CIF.");
 			return "error";
 		}
 

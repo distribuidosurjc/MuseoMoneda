@@ -39,7 +39,7 @@
 				<h1 th:if="${#lists.isEmpty(monedas)}">Moneda no encontrada</h1>
 				<div th:unless=="${#lists.isEmpty(monedas)}">
 					<h3>Moneda encontrada</h3>
-					<table class="egt">
+					<table class = "seleccionadas">
 						<tr>
 							<th>Modelo</th>
 							<th>Valor</th>
@@ -52,7 +52,7 @@
 						</tr>
 						<p th:each="moneda : ${monedas}">
 						<tr>
-							<th><span th:text="${moneda.modelo}"></span></th>
+							<td class = "primeraDeFila"><span th:text="${moneda.modelo}"></span></td>
 							<td><span th:text="${moneda.valor}"></span></td>
 							<td><span th:text="${moneda.divisa}"></span></td>
 							<td><span th:text="${moneda.diametro}"></span></td>
