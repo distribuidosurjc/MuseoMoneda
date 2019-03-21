@@ -17,6 +17,7 @@ public class ProveedorController {
 			repProveedor.save(proveedor);
 			return  "hecho";
 		}else {
+			model.addAttribute("error", "No se pudo añadir porque ya existe un proveedor con ese cif");
 			return "error";
 		}
 
