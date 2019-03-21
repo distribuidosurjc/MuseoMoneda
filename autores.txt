@@ -1,4 +1,4 @@
-Un fichero autores.txt donde se especifique elnombre, apellidos y DNI de los miembros del grupo,
+﻿Un fichero autores.txt donde se especifique elnombre, apellidos y DNI de los miembros del grupo,
 y cual ha sido la participación concreta de cada uno en el trabajo.
 No es necesario que las tareas se repartan individualmente, sólo explicar cómo se han repartido.
 
@@ -17,6 +17,8 @@ DNI:
 Correo: 
 Participación:
 - 
+
+eeeeeeeeeeeeeeeeeee
 
 Nombre completo: Guillermo
 DNI: 
