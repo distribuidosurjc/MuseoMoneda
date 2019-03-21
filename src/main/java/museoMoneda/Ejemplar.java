@@ -1,6 +1,5 @@
 package museoMoneda;
 
-import java.io.Serializable;
 import java.sql.Date;
 import java.util.Collection;
 
@@ -14,7 +13,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Ejemplar implements Serializable {
+public class Ejemplar {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -23,17 +22,20 @@ public class Ejemplar implements Serializable {
 	private String ciudad;
 	private Date fecha;
 	private String estado;
-
+	private int moneda;
+	private String proveedor;
 
 	public Ejemplar() {
 		
 	}
 	
-	public Ejemplar( int año, String ciudad, Date fecha, String estado) {
+	public Ejemplar(int moneda, int año, String ciudad, Date fecha, String estado, String proveedor) {
+			this.moneda = moneda;
 			this.año = año;
 			this.ciudad = ciudad;
 			this.fecha = fecha;
 			this.estado = estado;
+			this.proveedor = proveedor;
 	}
 	
 	public int getAño() {
@@ -66,6 +68,28 @@ public class Ejemplar implements Serializable {
 	
 	public void setEstado(String estado) {
 			this.estado= estado;
+	}
+	
+	
+
+	public int getId() {
+		return id;
+	}
+
+	public int getMoneda() {
+		return moneda;
+	}
+
+	public void setMoneda(int moneda) {
+		this.moneda = moneda;
+	}
+
+	public String getProveedor() {
+		return proveedor;
+	}
+
+	public void setProveedor(String proveedor) {
+		this.proveedor = proveedor;
 	}
 
 	/**

@@ -87,13 +87,13 @@
 						<table>
 							<tr>
 								<td><label class="Etiquetas">Modelo:</label>
-								<td><input type='text' class="campos" name='modelo'
+								<td><input type="number" min = "1" class="campos" name='modelo'
 									placeholder="Número de Serie" required /></td>
 								</td>
 							</tr>
 							<tr>
 								<td><label class="Etiquetas">Año:</label>
-								<td><input type='number' class="campos" name='año'
+								<td><input type='number' class="campos" name='year'
 									max="2019" placeholder="2019" required /></td>
 								</td>
 							</tr>
@@ -112,7 +112,7 @@
 							<tr>
 								<td><label class="Etiquetas">Estado de
 										Conservación:</label>
-								<td><select required>
+								<td><select name = "estado" required>
 										<option value="PRF">Pruebas</option>
 										<option value="FDC">Flor de Cuño</option>
 										<option value="SC">Sin Circular</option>
@@ -127,7 +127,7 @@
 							</tr>
 							<tr>
 								<td><label class="Etiquetas">Proveedor:</label>
-								<td><input type='text' class="campos" name='proveedor'
+								<td><input type='text' class="campos" name='cif'
 									placeholder="CIF" required /></td>
 								</td>
 							</tr>
