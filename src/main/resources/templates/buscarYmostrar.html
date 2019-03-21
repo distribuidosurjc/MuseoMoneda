@@ -111,6 +111,52 @@
 				</div>
 			</div>
 		</div>
+		
+		<div th:if="${src == 'ejemplar'}">
+			<div>
+				<form action="/buscar/ejemplar/on/ejem" method="post">
+					<input id="buscador" type='search' class="campos" name='estado'
+							placeholder="Estado">
+					<input id="buscador" type='search' class="campos" name='ciudad'
+							placeholder="Ciudad">
+					<input id="Buscar2" class="boton fondo" type='submit' name='buscar' value='Buscar'>
+					<p>Ordenar por:  </p>
+					<select name='orden'>
+						<option>Ciudad</option>
+						<option>Estado</option>
+						<option>Fecha</option>
+					</select>
+				</form>
+			</div>
+
+			<div id="Mostrar" th:if="${av == 'on'}">
+				<h1 th:if="${#lists.isEmpty(ejemplares)}">ejemplar no encontrado</h1>
+				<div th:unless=="${#lists.isEmpty(ejemplares)}">
+					<h3>ejemplar encontrado</h3>
+					<table class="egt">
+						<tr>
+							<th>ID</th>
+							<th>Año</th>
+							<th>Ciudad</th>
+							<th>Fecha</th>
+							<th>Estado</th>
+							<th></th>
+						</tr>
+					<p th:each="ejemplar : ${ejemplar}">
+					<tr>
+							<th><span th:text="${ejemplar.id}"></span></th>
+							<td><span th:text="${ejemplar.año}"></span></td>
+							<td><span th:text="${ejemplar.ciudad}"></span></td>
+							<td><span th:text="${ejemplar.fecha}"></span></td>
+							<td><span th:text="${ejemplar.estdao}"></span></td>
+							<td><a th:href="@{/modificar/{src}/(${ejemplar.id})}">Modificar</a></td>
+						</tr>
+						</p>
+					</table>
+					</p>
+				</div>
+			</div>
+		</div>
 		<br><a class="boton fondo" id="Volver" href="/">Volver</a>
 	</div>
 </body>

@@ -67,6 +67,24 @@ public class Ejemplar implements Serializable {
 	public void setEstado(String estado) {
 			this.estado= estado;
 	}
+
+	/**
+	 * @param anotherString
+	 * @return
+	 * @see java.lang.String#compareTo(java.lang.String)
+	 */
+	public int compareTo(String anotherString) {
+		return ciudad.compareTo(anotherString);
+	}
+
+	/**
+	 * @param arg0
+	 * @return
+	 * @see java.util.Date#compareTo(java.util.Date)
+	 */
+	public int compareTo(java.util.Date arg0) {
+		return fecha.compareTo(arg0);
+	}
 	
 
 

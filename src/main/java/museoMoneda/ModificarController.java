@@ -15,7 +15,7 @@ public class ModificarController {
 	public String modificar(
 			@PathVariable(value="id") int id,
 			Model model) {
-			Moneda moneda = repMonedas.findByModelo(id);
+			Moneda moneda = repMonedas.findById(id);
 			model.addAttribute("moneda", moneda);
 		return "Modificar";
 	}

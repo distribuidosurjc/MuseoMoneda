@@ -18,6 +18,8 @@ public class MostrarController {
 	public MonedaRepository repMonedas;
 	@Autowired
 	public ProveedorRepository repProveedor;
+	@Autowired
+	public EjemplarRepository repEjemplar;
 
 	@RequestMapping("/buscar/{src}")
 	public String buscar(
@@ -94,5 +96,41 @@ public class MostrarController {
 		model.addAttribute("proveedores", lista);
 
 		return "buscarYmostrar";
+	}
+	@RequestMapping("/buscar/{src}/{av}/ejem")
+	public String buscadoEjemplar(
+			@PathVariable(value="src") String src,
+			@PathVariable(value="av") String av,
+			String estado, String ciudad, String orden,  Model model) {
+		
+		Comparator<Ejemplar> cmpEjmCiudad = (p1, p2) -> p1.getCiudad().compareTo(p2.getCiudad());
+		Comparator<Ejemplar> cmpEjmEstado = (p1, p2) -> p1.getEstado().compareTo(p2.getEstado());
+		Comparator<Ejemplar> cmpEjmFecha = (p1, p2) -> p1.getFecha().compareTo(p2.getFecha());
+		
+		List<Ejemplar> lista;
+		
+		if(estado=="") {
+			lista = repEjemplar.findByCiudad(ciudad);
+		}else if(ciudad=="") {
+			lista = repEjemplar.findByEstado(estado);
+		}else {
+			lista = repEjemplar.findByEstadoAndCiudad(estado, ciudad);
+		}
+		
+		switch(orden) {
+		case "Ciudad":
+			lista.sort(cmpEjmCiudad);
+			break;
+		case "Estado":
+			lista.sort(cmpEjmEstado);
+			break;
+		default:
+			lista.sort(cmpEjmFecha);
+		}
+		
+		model.addAttribute("ejemplares", lista);
+
+		return "buscarYmostrar";
+		
 	}
 }
