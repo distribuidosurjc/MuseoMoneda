@@ -28,7 +28,7 @@
 					<p>Ordenar por:  </p>
 					<select name='orden'>
 						<option>Divisa</option>
-						<option>Valor Facial</option>
+						<option selected>Valor Facial</option>
 						<option>Peso</option>
 						<option>Diámetro</option>
 					</select>
@@ -59,7 +59,7 @@
 							<td><span th:text="${moneda.peso}"></span></td>
 							<td><span th:text="${moneda.composicion}"></span></td>
 							<td><span th:text="${moneda.descripcion}"></span></td>
-							<td><a th:href="@{/modificar(${moneda.modelo})}">Modificar</a></td>
+							<td><a th:href="@{/modificar/{src}(${moneda.modelo})}">Modificar</a></td>
 						</tr>
 						</p>
 					</table>
@@ -71,6 +71,7 @@
 			<div>
 				<form action="/buscar/proveedor/on/pro" method="post">
 					<input id="buscador" type='search' class="campos" name='nombre'>
+					<input id="buscador" type='search' class="campos" name='cif'>
 					<input id="Buscar2" class="boton fondo" type='submit' name='buscar' value='Buscar'>
 				</form>
 			</div>
@@ -79,12 +80,26 @@
 				<h1 th:if="${#lists.isEmpty(proveedores)}">proveedor no encontrado</h1>
 				<div th:unless=="${#lists.isEmpty(proveedores)}">
 					<h3>Proveedor encontrado</h3>
+					<table class="egt">
+						<tr>
+							<th>CIF</th>
+							<th>Nombre</th>
+							<th>Direccion Postal</th>
+							<th>Email</th>
+							<th>Telefono</th>
+							<th></th>
+						</tr>
 					<p th:each="proveedor : ${proveedores}">
-						<span th:text="'CIF: ' + ${proveedor.cif}"></span><br /> <span
-							th:text="'Nombre: ' + ${proveedor.nombre}"></span><br /> <span
-							th:text="'Direccion Postal: ' + ${proveedor.direccionPostal}"></span><br /> <span
-							th:text="'Email: ' + ${proveedor.email}"></span><br /> <span
-							th:text="'Telefono: ' + ${proveedor.tlf}"></span><br />
+					<tr>
+							<th><span th:text="${proveedor.cif}"></span></th>
+							<td><span th:text="${proveedor.nombre}"></span></td>
+							<td><span th:text="${proveedor.direccionPostal}"></span></td>
+							<td><span th:text="${proveedor.email}"></span></td>
+							<td><span th:text="${proveedor.tlf}"></span></td>
+							<td><a th:href="@{/modificar/{src}/(${proveedor.cif})}">Modificar</a></td>
+						</tr>
+						</p>
+					</table>
 					</p>
 				</div>
 			</div>
