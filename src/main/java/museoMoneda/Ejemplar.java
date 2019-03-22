@@ -11,6 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Ejemplar {
@@ -22,14 +23,18 @@ public class Ejemplar {
 	private String ciudad;
 	private Date fecha;
 	private String estado;
-	private int moneda;
-	private String proveedor;
+	@OneToOne
+	@JoinColumn(name = "modelo")
+	private Moneda moneda;
+	@OneToOne
+	@JoinColumn(name = "cif")
+	private Proveedor proveedor;
 
 	public Ejemplar() {
 		
 	}
 	
-	public Ejemplar(int moneda, int año, String ciudad, Date fecha, String estado, String proveedor) {
+	public Ejemplar(Moneda moneda, int año, String ciudad, Date fecha, String estado, Proveedor proveedor) {
 			this.moneda = moneda;
 			this.año = año;
 			this.ciudad = ciudad;
@@ -76,19 +81,19 @@ public class Ejemplar {
 		return id;
 	}
 
-	public int getMoneda() {
+	public Moneda getMoneda() {
 		return moneda;
 	}
 
-	public void setMoneda(int moneda) {
+	public void setMoneda(Moneda moneda) {
 		this.moneda = moneda;
 	}
 
-	public String getProveedor() {
+	public Proveedor getProveedor() {
 		return proveedor;
 	}
 
-	public void setProveedor(String proveedor) {
+	public void setProveedor(Proveedor proveedor) {
 		this.proveedor = proveedor;
 	}
 

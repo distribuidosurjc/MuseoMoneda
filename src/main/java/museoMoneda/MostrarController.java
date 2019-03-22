@@ -80,7 +80,8 @@ public class MostrarController {
 		if(cif=="") {
 			lista = repProveedor.findByNombre(nombre);
 		}else if(nombre=="") {
-			lista = repProveedor.findByCif(cif);
+			lista = new ArrayList<Proveedor>();
+			lista.add(repProveedor.findById(cif).get());
 		}else {
 			lista = repProveedor.findByCifAndNombre(cif, nombre);
 		}

@@ -18,19 +18,26 @@ public class EjemplarController {
 
 	@RequestMapping("/insertar/ejemplar")
 	public String insertar(int modelo, int year, String ciudad, Date fecha, String estado, String cif, Model model) {
-
+		
+		Moneda moneda;
+		Proveedor proveedor;
+		
 		if (!repMonedas.existsById(modelo)) {
 			model.addAttribute("error", "No se pudo añadir porque no existe una moneda con este Id.");
 			return "error";
+		} else {
+			moneda = repMonedas.findById(modelo).get();
 		}
 
 		if (!repProveedor.existsById(cif)) {
 			model.addAttribute("error", "No se pudo añadir porque no existe un proveedor con este CIF.");
 			return "error";
+		} else {
+			proveedor = repProveedor.findById(cif).get();
 		}
 
 
-		Ejemplar ejemplar = new Ejemplar(modelo, year, ciudad, fecha, estado, cif);
+		Ejemplar ejemplar = new Ejemplar(moneda, year, ciudad, fecha, estado, proveedor);
 
 
 		String src = "ejemplar";
