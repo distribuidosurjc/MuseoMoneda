@@ -6,8 +6,8 @@ Nombre completo: Christian Fabian Díaz Silva
 DNI: 40539112W
 Correo: cf.diaz.2017@alumnos.urjc.es
 Participación:
-- Modelado de Base de Datos y creación de proyecto compartido en git.
-- Implementación Tabla de Monedas (Moneda.java y MonedaRepository.java).
+- Modelado de Base de Datos.
+- Implementación de Monedas y Ejemplar (Moneda.java, MonedaRepository.java, Ejemplar.java, EjemplarRepository.java).
 - Implementación IndexController.java, InsertarController.java, error.html, hecho.html, index.html...
 - Trabajado en styles.css, MostrarController.java, crear.html, buscarYmostrar.html...
 - Búsqueda y adaptación de recursos visuales.
@@ -18,7 +18,7 @@ Correo: s.palaciosg@alumnos.urjc.es
 Participación:
 - Implementacion de BuscarYmostrar.html, MostrarController.java
 - Trabajado en style.css, EjemplarRepository.java, error.html, ...
-- Guia espiritual del equipo y encargado de marketing.
+- Jefe de animadoras.
 
 Nombre completo: Guillermo
 DNI: 
@@ -32,3 +32,4 @@ Correo: d.martindec@alumnos.urjc.es
 Participación:
 - Implementación Tabla de Proveedor (Proveedor.java, ProveedorRepository.java y ProveedorController.java)
 - Trabajado en styles.css, modificar.html, ...
+- Caganer oficial.
