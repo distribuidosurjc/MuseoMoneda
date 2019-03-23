@@ -40,11 +40,13 @@ public class MostrarController {
 
 		List<Moneda> lista;
 
-		if(valor=="") {
-			lista = repMonedas.findByDivisa(divisa);
+		if(valor=="" && divisa=="") {
+			lista = repMonedas.findAll();
 		} else if(divisa=="") {
 			lista = repMonedas.findByValor(Integer.parseInt(valor));
-		} else {
+		} else if(valor==""){
+			lista = repMonedas.findByDivisa(divisa);
+		}else {
 			lista = repMonedas.findByDivisaAndValor(divisa, Integer.parseInt(valor));
 		}
 
@@ -77,11 +79,13 @@ public class MostrarController {
 
 		List<Proveedor> lista;
 
-		if(cif=="") {
-			lista = repProveedor.findByNombre(nombre);
+		if(nombre=="" && cif=="") {
+			lista = repProveedor.findAll();
 		}else if(nombre=="") {
 			lista = new ArrayList<Proveedor>();
 			lista.add(repProveedor.findById(cif).get());
+		}else if(cif==""){
+			lista = repProveedor.findByNombre(nombre);
 		}else {
 			lista = repProveedor.findByCifAndNombre(cif, nombre);
 		}
@@ -110,10 +114,12 @@ public class MostrarController {
 		
 		List<Ejemplar> lista;
 		
-		if(estado=="") {
-			lista = repEjemplar.findByCiudad(ciudad);
+		if(estado=="" && ciudad =="") {
+			lista = repEjemplar.findAll();
 		}else if(ciudad=="") {
 			lista = repEjemplar.findByEstado(estado);
+		}else if(estado==""){
+			lista = repEjemplar.findByCiudad(ciudad);
 		}else {
 			lista = repEjemplar.findByEstadoAndCiudad(estado, ciudad);
 		}

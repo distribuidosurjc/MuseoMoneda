@@ -19,7 +19,7 @@ public class Ejemplar {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
-	private int año;
+	private int year;
 	private String ciudad;
 	private Date fecha;
 	private String estado;
@@ -34,9 +34,9 @@ public class Ejemplar {
 		
 	}
 	
-	public Ejemplar(Moneda moneda, int año, String ciudad, Date fecha, String estado, Proveedor proveedor) {
+	public Ejemplar(Moneda moneda, int year, String ciudad, Date fecha, String estado, Proveedor proveedor) {
 			this.moneda = moneda;
-			this.año = año;
+			this.year = year;
 			this.ciudad = ciudad;
 			this.fecha = fecha;
 			this.estado = estado;
@@ -44,11 +44,11 @@ public class Ejemplar {
 	}
 	
 	public int getAño() {
-			return año;
+			return year;
 	}
 	
-	public void setAño(int año) {
-			this.año= año;
+	public void setAño(int year) {
+			this.year= year;
 	}
 	
 	public String getCiudad() {
