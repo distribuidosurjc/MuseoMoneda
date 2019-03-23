@@ -11,8 +11,9 @@ public class ModificarController {
 	@Autowired
 	public MonedaRepository repMonedas;
 	
-	@RequestMapping("/modificar/moneda/{id}")
+	@RequestMapping("/modificar/{src}/{id}")
 	public String modificar(
+			@PathVariable(value="src") String src,
 			@PathVariable(value="id") int id,
 			Model model) {
 			Moneda moneda = repMonedas.findById(id).get();

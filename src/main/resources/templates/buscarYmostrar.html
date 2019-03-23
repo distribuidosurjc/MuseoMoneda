@@ -87,7 +87,7 @@
 				<h1 th:if="${#lists.isEmpty(proveedores)}">proveedor no encontrado</h1>
 				<div th:unless=="${#lists.isEmpty(proveedores)}">
 					<h3>Proveedor encontrado</h3>
-					<table class="egt">
+					<table class="seleccionadas">
 						<tr>
 							<th>CIF</th>
 							<th>Nombre</th>
@@ -133,7 +133,7 @@
 				<h1 th:if="${#lists.isEmpty(ejemplares)}">ejemplar no encontrado</h1>
 				<div th:unless=="${#lists.isEmpty(ejemplares)}">
 					<h3>ejemplar encontrado</h3>
-					<table class="egt">
+					<table class="seleccionadas">
 						<tr>
 							<th>ID</th>
 							<th>Año</th>
@@ -150,7 +150,7 @@
 							<td><span th:text="${ejemplar.year}"></span></td>
 							<td><span th:text="${ejemplar.ciudad}"></span></td>
 							<td><span th:text="${ejemplar.fecha}"></span></td>
-							<td><span th:text="${ejemplar.estdao}"></span></td>
+							<td><span th:text="${ejemplar.estado}"></span></td>
 							<td><span th:text="${ejemplar.moneda.modelo}"></span></td>
 							<td><span th:text="${ejemplar.proveedor.cif}"></span></td>
 							<td><a th:href="@{/modificar/ejemplar/(${ejemplar.id})}">Modificar</a></td>

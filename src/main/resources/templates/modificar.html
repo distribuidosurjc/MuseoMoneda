@@ -19,7 +19,7 @@
 	<div class="margen-top">
 		<div class="columna">
 			<div class="borde contenedor" style="min-height: 460px">
-					<div th:if="${src == 'm'}">
+					<div th:if="${src == 'moneda'}">
 					<div id="cabecera" class="centrado">
 						<h3>Modificar Moneda</h3>
 						<img src="/img/moneda.png" alt="Moneda" height="120" width="120"><br>
@@ -42,7 +42,7 @@
 							<tr>
 								<td><label class="Etiquetas">Diámetro:</label>
 								<td><input type='text' class="campos" name='diametro'
-									placeholder="En milímetros" pattern="\d+([,\.']\d+)?" required /><span th:text= "${moneda.diametro}"></span></td>
+									placeholder="En milímetros" pattern="\d+([,\.']\d+)?" /><span th:text= "${moneda.diametro}"></span></td>
 								</td>
 							</tr>
 							<tr>

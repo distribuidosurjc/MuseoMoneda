@@ -43,11 +43,11 @@ public class Ejemplar {
 			this.proveedor = proveedor;
 	}
 	
-	public int getAño() {
+	public int getYear() {
 			return year;
 	}
 	
-	public void setAño(int year) {
+	public void setYear(int year) {
 			this.year= year;
 	}
 	
