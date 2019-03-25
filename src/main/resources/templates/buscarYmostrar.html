@@ -20,7 +20,7 @@
 		<div th:if="${src == 'moneda'}">
 			<div>
 				<form action="/buscar/moneda/on/mon" method="post">
-					<input id="buscador" type='search' class="campos" name='divisa'
+					<input id="buscador" type='search' class="campos" name='divisa' autofocus="autofocus"
 							placeholder="Divisa">
 					<input id="buscador" type='search' class="campos" name='valor'
 							placeholder="Valor Facial">
@@ -70,7 +70,7 @@
 		<div th:if="${src == 'proveedor'}">
 			<div>
 				<form action="/buscar/proveedor/on/pro" method="post">
-					<input id="buscador" type='search' class="campos" name='nombre'
+					<input id="buscador" type='search' class="campos" name='nombre' autofocus="autofocus"
 							placeholder="Nombre">
 					<input id="buscador" type='search' class="campos" name='cif'
 							placeholder="CIF">
@@ -115,7 +115,7 @@
 		<div th:if="${src == 'ejemplar'}">
 			<div>
 				<form action="/buscar/ejemplar/on/ejem" method="post">
-					<input id="buscador" type='search' class="campos" name='estado'
+					<input id="buscador" type='search' class="campos" name='estado' autofocus="autofocus"
 							placeholder="Estado">
 					<input id="buscador" type='search' class="campos" name='ciudad'
 							placeholder="Ciudad">
