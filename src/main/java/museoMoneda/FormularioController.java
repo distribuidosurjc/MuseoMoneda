@@ -19,13 +19,5 @@ public class FormularioController {
 
 		return "crear";
 	}
-
-	@RequestMapping("/modificar/{src}")
-	public String modificar(
-			@PathVariable(value="src") String src,
-			Model model) {
-
-		return "modificar";
-	}
 	
 }

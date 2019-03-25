@@ -59,7 +59,7 @@
 							<td><span th:text="${moneda.peso}"></span></td>
 							<td><span th:text="${moneda.composicion}"></span></td>
 							<td><span th:text="${moneda.descripcion}"></span></td>
-							<td><a th:href="@{/modificar/moneda/(${moneda.modelo})}">Modificar</a></td>
+							<td><a th:href="@{/modificar/moneda(monedaID=${moneda.modelo})}">Modificar</a></td>
 						</tr>
 						</p>
 					</table>
