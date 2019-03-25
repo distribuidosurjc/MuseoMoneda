@@ -18,7 +18,6 @@ Correo: s.palaciosg@alumnos.urjc.es
 Participación:
 - Implementacion de BuscarYmostrar.html, MostrarController.java
 - Trabajado en style.css, EjemplarRepository.java, error.html, ...
--Me encantan los bukkakes.
 
 Nombre completo: Guillermo
 DNI: 
@@ -32,4 +31,5 @@ Correo: d.martindec@alumnos.urjc.es
 Participación:
 - Implementación Tabla de Proveedor (Proveedor.java, ProveedorRepository.java y ProveedorController.java)
 - Trabajado en styles.css, modificar.html, MonedaController.java, EjemplarController.java...
-- 
+- Me encantan los bukkakes y que me revienten el ano.
+
