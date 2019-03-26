@@ -103,7 +103,7 @@
 							<td><span th:text="${proveedor.direccionPostal}"></span></td>
 							<td><span th:text="${proveedor.email}"></span></td>
 							<td><span th:text="${proveedor.tlf}"></span></td>
-							<td><a th:href="@{/modificar/proveedor/(${proveedor.cif})}">Modificar</a></td>
+							<td><a th:href="@{/modificar/proveedor(proveedorID=${proveedor.cif})}">Modificar</a></td>
 						</tr>
 						</p>
 					</table>
@@ -153,7 +153,7 @@
 							<td><span th:text="${ejemplar.estado}"></span></td>
 							<td><span th:text="${ejemplar.moneda.modelo}"></span></td>
 							<td><span th:text="${ejemplar.proveedor.cif}"></span></td>
-							<td><a th:href="@{/modificar/ejemplar/(${ejemplar.id})}">Modificar</a></td>
+							<td><a th:href="@{/modificar/ejemplar(ejemplarID=${ejemplar.id})}">Modificar</a></td>
 						</tr>
 						</p>
 					</table>
