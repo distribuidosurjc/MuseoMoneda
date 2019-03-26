@@ -19,7 +19,7 @@ Participación:
 - Implementacion de BuscarYmostrar.html, MostrarController.java
 - Trabajado en style.css, EjemplarRepository.java, error.html, ...
 
-Nombre completo: Guillermo
+Nombre completo: Guillermo García Maroto
 DNI: 50359920V
 Correo: g.garciamaro@alumnos.urjc.es
 Participación:
