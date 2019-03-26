@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class ProveedorController {
@@ -23,5 +24,15 @@ public class ProveedorController {
 			return "error";
 		}
 
+	}
+	@RequestMapping("/modificar/proveedor")
+	public String modificar(@RequestParam String proveedorID, Model model) {
+		
+		String num = "proveedor";
+		model.addAttribute("src",num);
+		Proveedor proveedor = repProveedor.findById(proveedorID).get();
+		model.addAttribute("proveedorID",proveedor);
+
+		return "modificar";
 	}
 }

@@ -3,7 +3,10 @@ package museoMoneda;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 import java.sql.Date;
 
 @Controller
@@ -45,5 +48,14 @@ public class EjemplarController {
 		repEjemplar.save(ejemplar);
 
 		return "hecho";
+	}
+	@RequestMapping("/modificar/ejemplar")
+	public String modificar(@RequestParam int ejemplarID, Model model) {
+		String num = "ejemplar";
+		model.addAttribute("src",num);
+		Ejemplar ejemplar = repEjemplar.findById(ejemplarID).get();
+		model.addAttribute("ejemplarID", ejemplar);
+
+		return "modificar";
 	}
 }
