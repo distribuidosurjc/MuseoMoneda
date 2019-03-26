@@ -15,249 +15,104 @@
 </header>
 <body>
 
-<!--Quiero modificar   
-<span th:text="${src}"></span>
-<span th:text= "${monedaID}"></span>  -->
+	<!-- Caso moneda -->
 
-<div th:if="${src == 'moneda'}">
-					<div id="cabecera" class="centrado">
-						<h3>Modificar Moneda</h3>
-						<img src="/img/moneda.png" alt="Moneda" height="120" width="120"><br>
-						<br>
+	<div th:if="${src == 'moneda'}" >
+
+		<div class="centrado margen-top" th:with="id=${moneda.modelo}">
+
+			<!-- Columna antigua -->
+			<div class="columna">
+				<div class="borde contenedor" style="min-height: 460px">
+					<h3>Datos Actuales de la Moneda</h3>
+					<img src="/img/moneda.png" alt="Moneda" height="120" width="120"><br>
+					<br>
+					<table>
+						<tr>
+							<td><label class="Etiquetas">Valor Facial:</label></td>
+							<td><span th:text="${moneda.valor}"></span></td>
+						</tr>
+						<tr>
+							<td><label class="Etiquetas">Divisa:</label></td>
+							<td><span th:text="${moneda.divisa}"></span></td>
+						</tr>
+						<tr>
+							<td><label class="Etiquetas">Diámetro:</label></td>
+							<td><span th:text="${moneda.diametro}"></span></td>
+						</tr>
+						<tr>
+							<td><label class="Etiquetas">Peso:</label></td>
+							<td><span th:text="${moneda.peso}"></span></td>
+						</tr>
+						<tr>
+							<td><label class="Etiquetas">Composición:</label></td>
+							<td><span th:text="${moneda.composicion}"></span></td>
+						</tr>
+						<tr>
+							<td><label class="Etiquetas">Descripción:</label></td>
+							<td><span th:text="${moneda.descripcion}"></span></td>
+						</tr>
+					</table>
+					<br> <br>
+					<div class="centrado">
+						<a class="boton fondo centrado" id="Volver" href="/">Volver</a>
 					</div>
-					<form id='insertar/moneda' action="/insertar/moneda" method="post">
-						<table class = "modificada">
+				</div>
+			</div>
+
+			<!-- Columna modificar -->
+			<div class="columna">
+				<div class="borde contenedor" style="min-height: 460px">
+					<h3>Nuevos Datos de la Moneda</h3>
+					<img src="/img/moneda.png" alt="Moneda" height="120" width="120"><br>
+					<br>
+					<form id='actualizar/moneda' action="/actualizar/moneda"
+						method="post">
+						<table>
 							<tr>
-								<td> Moneda Antigua</td>
-								<td> Nueva Moneda</td>
+								<td><label class="Etiquetas">Valor Facial:</label></td>
+								<td><input type='number' min="0" class="campos"
+									name='valor' placeholder="Numero Entero" required /></td>
 							</tr>
 							<tr>
-								<td>Valor Facial anterior: <span th:text="${monedaID.valor}"></span></td>
-								<td><label class="Etiquetas">Valor Facial:</label>
-								<td><input type='number' min ="0" class="campos" name='valor'
-									placeholder="Numero Entero" required /></td>
-								</td>
-							</tr>
-							<tr>
-							<td>Divisa anterior: <span th:text="${monedaID.divisa}"></span></td>
-								<td><label class="Etiquetas">Divisa:</label>
-								<div class = "texto">
+								<td><label class="Etiquetas">Divisa:</label></td>
 								<td><input type='text' class="campos" name='divisa'
 									placeholder="Euro, dólar..." required /></td>
-								</td></div>
 							</tr>
 							<tr>
-							<td>Diámetro anterior: <span th:text="${monedaID.diametro}"></span></td>
-								<td><label class="Etiquetas">Diámetro:</label>
-								<div class = "centrado">
+								<td><label class="Etiquetas">Diámetro:</label></td>
 								<td><input type='text' class="campos" name='diametro'
 									placeholder="En milímetros" pattern="\d+([,\.']\d+)?" required /></td>
-								</td></div>
 							</tr>
 							<tr>
-							<td>Peso anterior: <span th:text="${monedaID.peso}"></span></td>
-								<td><label class="Etiquetas">Peso:</label>
+								<td><label class="Etiquetas">Peso:</label></td>
 								<td><input type='text' class="campos" name='peso'
 									placeholder="En gramos" pattern="\d+([,\.']\d+)?" required /></td>
-								</td>
 							</tr>
 							<tr>
-								<td>Composicion anterior: <span th:text="${monedaID.composicion}"></span></td>
-								<td><label class="Etiquetas">Composición:</label>
+								<td><label class="Etiquetas">Composición:</label></td>
 								<td><input type='text' class="campos" name='composicion'
 									placeholder="Zinc, Cobre..." required /></td>
-								</td>
 							</tr>
 							<tr>
-								<td>Descripcion anterior: <span th:text="${monedaID.descripcion}"></span></td>
-								<td><label class="Etiquetas">Descripción:</label>
+								<td><label class="Etiquetas">Descripción:</label></td>
 								<td><textarea class="campos" name="descripcion" rows="3"
-										cols="20"
-										placeholder="Información relevante de esta tirada de monedas."></textarea></td>
-								</td>
-							</tr>
-						</table>
-						<div class='centrado padding'>
-							<a class="boton fondo" id="Volver" href="/">Volver</a>
-						</div>
-						<div class='centrado padding'>
-							<input type='submit' class="boton fondo" name='enviar'
-								value='Enviar' />
-						</div>
-					</form>
-</div>
-<div th:if="${src == 'ejemplar'}">
-					<div id="cabecera" class="centrado">
-						<h3>Añadir Ejemplar Nuevo</h3>
-						<img src="/img/adquisicion.png" alt="Adquisicion" height="120"
-							width="120"><br> <br>
-					</div>
-					<form id='insertar/ejemplar' action="/insertar/ejemplar"
-						method="post">
-						<table>
-							<tr>
-							<td>Modelo anterior: <span th:text="${ejemplarID.modelo}"></span></td>
-								<td><label class="Etiquetas">Modelo:</label>
-								<td><input type="number" min = "1" class="campos" name='modelo'
-									placeholder="Número de Serie" required /></td>
-								</td>
-							</tr>
-							<tr>
-							<td>Año anterior: <span th:text="${monedaID.year}"></span></td>
-								<td><label class="Etiquetas">Año:</label>
-								<td><input type='number' class="campos" name='year'
-									max="2019" placeholder="2019" required /></td>
-								</td>
-							</tr>
-							<tr>
-								<td><label class="Etiquetas">Ciudad de Acuñación:</label>
-								<td><input type='text' class="campos" name='ciudad'
-									placeholder="Madrid, Lisboa..." required /></td>
-								</td>
-							</tr>
-							<tr>
-								<td><label class="Etiquetas">Fecha de Adquisición:</label>
-								<td><input type='date' class="campos" name='fecha'
-									max="2019-06-01" required /></td>
-								</td>
-							</tr>
-							<tr>
-								<td><label class="Etiquetas">Estado de
-										Conservación:</label>
-								<td><select name = "estado" required>
-										<option value="PRF">Pruebas</option>
-										<option value="FDC">Flor de Cuño</option>
-										<option value="SC">Sin Circular</option>
-										<option value="EBC">Excelente Buena Conservación</option>
-										<option value="MBC">Muy Buena Conservación</option>
-										<option value="BC+">Buena Conservación Plus</option>
-										<option value="BC">Buena Conservación</option>
-										<option value="RC">Regular Conservación</option>
-										<option value="MC">Mala Conservación</option>
-								</select></td>
-								</td>
-							</tr>
-							<tr>
-								<td><label class="Etiquetas">Proveedor:</label>
-								<td><input type='text' class="campos" name='cif'
-									placeholder="CIF" required /></td>
-								</td>
+										cols="20" placeholder="Información relevante."></textarea></td>
 							</tr>
 						</table>
 						<div class='centrado'>
 							<input type='submit' class="boton fondo" name='enviar'
 								value='Enviar' />
 						</div>
+						<!-- botón -->
 					</form>
 				</div>
-<div th:if="${src == 'proveedor'}">
-					<div id="cabecera" class="centrado">
-						<h3>Añadir Proveedor Nuevo</h3>
-						<img src="/img/proveedor.png" alt="Proveedor" height="120"
-							width="120"><br> <br>
-					</div>
-					<form id='insertar/proveedor' action="/insertar/proveedor"
-						method="post">
-						<table>
-							<tr>
-							<td>Cif anterior: <span th:text="${proveedorID.cif}"></span></td>
-								<td><label class="Etiquetas">CIF:</label>
-								<td><input type='text' class="campos" name='cif'
-									pattern="[A-Z]\d{7}([A-Z]|\d)" placeholder="A1234567B" required /></td>
-								</td>
-							</tr>
-							<tr>
-								<td><label class="Etiquetas">Nombre:</label>
-								<td><input type='text' class="campos" name='nombre'
-									placeholder="Proveedor SL" required /></td>
-								</td>
-							</tr>
-							<tr>
-								<td><label class="Etiquetas">Dirección Postal:</label>
-								<td><input type='text' class="campos"
-									name='direccionPostal' placeholder="Calle Falsa 123" required /></td>
-								</td>
-							</tr>
-							<tr>
-								<td><label class="Etiquetas">E-Mail:</label>
-								<td><input type='text' class="campos" name='email'
-									placeholder="correo@empresa.dom" required /></td>
-								</td>
-							</tr>
-							<tr>
-								<td><label class="Etiquetas">Teléfono de Contacto:</label>
-								<td><input type='text' pattern="[0-9]{9}"
-									placeholder="123456789" class="campos" name='tlf' required /></td>
-								</td>
-							</tr>
-						</table>
-						<div class='centrado'>
-							<input type='submit' class="boton fondo" name='enviar'
-								value='Enviar' />
-						</div>
-					</form>
-				</div>
-
-<!--   
-	<div class="margen-top">
-		<div class="columna">
-			<div class="borde contenedor" style="min-height: 460px">
-					<div th:if="${src == 'moneda'}">
-					<div id="cabecera" class="centrado">
-						<h3>Modificar Moneda</h3>
-						<img src="/img/moneda.png" alt="Moneda" height="120" width="120"><br>
-						<br>
-					</div>
-						<form id='modificar/moneda' action="/insertar/moneda" method="post">
-						<table>
-							<tr>
-								<td><label class="Etiquetas">Valor Facial:</label>
-								<td><input type='number' class="campos" name='valor'
-									min="0" value="${monedaID.valor}" /><span th:text= "${monedaID.valor}"></span></td>
-								</td>
-							</tr>
-							<tr>
-								<td><label class="Etiquetas">Divisa:</label>
-								<td><input type='text' class="campos" name='divisa'
-									placeholder="Euro, dólar..." required value="<span th:text= ${monedaID.divisa}></span>"/></td>
-								</td>
-							</tr>
-							<tr>
-								<td><label class="Etiquetas">Diámetro:</label>
-								<td><input type='text' class="campos" name='diametro'
-									placeholder="En milímetros" pattern="\d+([,\.']\d+)?" value="${monedaID.diametro}"/></td>
-								</td>
-							</tr>
-							<tr>
-								<td><label class="Etiquetas">Peso:</label>
-								<td><input type='text' class="campos" name='peso'
-									placeholder="En gramos" pattern="\d+([,\.']\d+)?" required value="${monedaP}"/></td>
-								</td>
-							</tr>
-							<tr>
-								<td><label class="Etiquetas">Composición:</label>
-								<td><input type='text' class="campos" name='composicion'
-									placeholder="Zinc, Cobre..." required value="${monedaID.composicion}"/></td>
-								</td>
-							</tr>
-							<tr>
-								<td><label class="Etiquetas">Descripción:</label>
-								<td><textarea class="campos" name="descripcion" rows="3"
-										cols="20"
-										placeholder="Información relevante de esta tirada de monedas." value=${monedaID.descripcion}></textarea></td>
-								</td>
-							</tr>
-						</table>
-						<div class='centrado'>
-							<input type='submit' class="boton fondo" name='enviar'
-								value='Enviar' />
-						</div>
-					</form>
-				</div>
-			<div class="centrado">
-				<a class="boton fondo centrado" id="Volver" href="/">Volver</a>
+				<!-- nuevos datos -->
 			</div>
+			<!-- columna modificar -->
 		</div>
-		-->
+		<!-- ambas columnas -->
+	</div>
+	<!-- caso moneda -->
 </body>
 </html>

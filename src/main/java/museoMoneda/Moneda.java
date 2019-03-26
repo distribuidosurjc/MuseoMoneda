@@ -38,10 +38,6 @@ public class Moneda implements Comparable {
 		return modelo;
 	}
 
-/*	public void setModelo(String modelo) {
-		this.modelo = modelo;
-	}*/
-
 	public int getValor() {
 		return valor;
 	}
@@ -57,11 +53,6 @@ public class Moneda implements Comparable {
 	public void setDivisa(String divisa) {
 		this.divisa = divisa;
 	}
-
-/*	public long getId() {
-		return id;
-	}
-*/
 
 	public double getDiametro() {
 		return diametro;
@@ -101,6 +92,15 @@ public class Moneda implements Comparable {
 		
 		
 		return 0;
+	}
+
+	public void actualizar(Moneda moneda) {
+		this.valor = moneda.valor;
+		this.divisa = moneda.divisa;
+		this.diametro = moneda.diametro;
+		this.peso = moneda.peso;
+		this.composicion = moneda.composicion;
+		this.descripcion = moneda.descripcion;
 	}
 	
 	

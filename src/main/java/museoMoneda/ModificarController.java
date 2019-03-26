@@ -14,24 +14,24 @@ public class ModificarController {
 	@Autowired
 	public MonedaRepository repMonedas;
 
-	/*	@RequestMapping("/modificar/{src}/{id}")
-	public String modificar(
-			@PathVariable(value="src") String src,
-			@PathVariable(value="id") int id,
-			Model model) {
-		Moneda moneda = repMonedas.findById(id).get();
-		model.addAttribute("moneda", moneda);
-		return "Modificar";
-	}*/
-
-	@RequestMapping("/modificar/{src}")
-	public String modificar(
-			@PathVariable(value="src") String src,
-			@RequestParam int monedaID,
-			Model model) {
-		
-		model.addAttribute("monedaID", monedaID);
+	@RequestMapping("/modificar/moneda")
+	public String modificar(@RequestParam int monedaID, Model model) {
+		String num = "moneda";
+		model.addAttribute("src", num);
+		Moneda moneda = repMonedas.findById(monedaID).get();
+		model.addAttribute("moneda",moneda);
 
 		return "modificar";
 	}
+
+	@RequestMapping("/actualizar/moneda")
+	public String actualizar(Moneda moneda, Model model) {
+/*
+		Moneda monedaAntigua = repMonedas.findById(id).get();
+		monedaAntigua.actualizar(moneda);
+		moneda = null;
+		repMonedas.save(moneda);*/
+		return "hecho";
+	}
+
 }

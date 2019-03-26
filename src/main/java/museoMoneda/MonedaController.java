@@ -22,14 +22,5 @@ public class MonedaController {
 
 		return "hecho";
 	}
-	@RequestMapping("/modificar/moneda")
-	public String modificar(@RequestParam int monedaID, Model model) {
-		String num = "moneda";
-		model.addAttribute("src", num);
-		Moneda moneda = repMonedas.findById(monedaID).get();
-		model.addAttribute("monedaID",moneda);
-		
-		return "modificar";
-	}
 	
 }
