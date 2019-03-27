@@ -1,5 +1,7 @@
 package museoMoneda;
 
+import java.sql.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,7 +22,7 @@ public class ModificarController {
 	// Moneda
 	
 	@RequestMapping("/modificar/moneda")
-	public String modificar(@RequestParam int monedaID, Model model) {
+	public String modificarMoneda(@RequestParam int monedaID, Model model) {
 		Moneda moneda = repMonedas.findById(monedaID).get();
 		model.addAttribute("moneda",moneda);
 
@@ -38,14 +40,14 @@ public class ModificarController {
 	}*/
 
 	@RequestMapping("/actualizar/moneda")
-	public String actualizar(@RequestParam int monedaID, int valor, String divisa, double diametro, double peso, String composicion, String descripcion, Model model) {
+	public String actualizarMoneda(@RequestParam int monedaID, int valor, String divisa, double diametro, double peso, String composicion, String descripcion, Model model) {
 		Moneda monedaAntigua = repMonedas.findById(monedaID).get();
 		
 		monedaAntigua.setValor(valor);
 		monedaAntigua.setDivisa(divisa);
 		monedaAntigua.setDiametro(diametro);
 		monedaAntigua.setPeso(peso);
-		monedaAntigua.setComposicion(composicion),
+		monedaAntigua.setComposicion(composicion);
 		monedaAntigua.setDescripcion(descripcion);
 		
 		repMonedas.save(monedaAntigua);
@@ -56,7 +58,7 @@ public class ModificarController {
 	// Ejemplar
 	
 	@RequestMapping("/modificar/ejemplar")
-	public String modificar(@RequestParam String ejemplarID, Model model) {
+	public String modificarEjemplar(@RequestParam int ejemplarID, Model model) {
 		Ejemplar ejemplar = repEjemplar.findById(ejemplarID).get();
 		model.addAttribute("ejemplar", ejemplar);
 
@@ -83,7 +85,7 @@ public class ModificarController {
 			proveedor = repProveedor.findById(cif).get();
 		}
 
-		Ejemplar ejemplarAntiguo = repEjemplar.findById(monedaID).get();
+		Ejemplar ejemplarAntiguo = repEjemplar.findById(modelo).get();
 		ejemplarAntiguo.setYear(year);
 		ejemplarAntiguo.setCiudad(ciudad);
 		ejemplarAntiguo.setFecha(fecha);
@@ -99,13 +101,10 @@ public class ModificarController {
 	
 	
 	
-	
-	
-	
 	// Proveedor
 	
 	@RequestMapping("/modificar/proveedor")
-	public String modificar(@RequestParam String proveedorID, Model model) {
+	public String modificarProveedor(@RequestParam String proveedorID, Model model) {
 		Proveedor proveedor = repProveedor.findById(proveedorID).get();
 		model.addAttribute("proveedor", proveedor);
 
@@ -113,9 +112,9 @@ public class ModificarController {
 	}
 	
 	@RequestMapping("/actualizar/proveedor")
-	public String actualizar(@RequestParam String proveedorID, Proveedor proveedor, Model model) {
+	public String actualizarProveedor(@RequestParam String proveedorID, Proveedor proveedor, Model model) {
 		Proveedor proveedorAntiguo = repProveedor.findById(proveedorID).get();
-		proveedorAntiguo.actualizar(proveedor);
+//		proveedorAntiguo.actualizar(proveedor);
 		repProveedor.save(proveedorAntiguo);
 		proveedor = null;
 		model.addAttribute("mensaje", "Proveedor modificado con Éxito.");
