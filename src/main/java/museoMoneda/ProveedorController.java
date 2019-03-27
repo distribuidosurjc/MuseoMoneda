@@ -24,14 +24,4 @@ public class ProveedorController {
 		}
 
 	}
-	@RequestMapping("/modificar/proveedor")
-	public String modificar(@RequestParam String proveedorID, Model model) {
-		
-		String num = "proveedor";
-		model.addAttribute("src",num);
-		Proveedor proveedor = repProveedor.findById(proveedorID).get();
-		model.addAttribute("proveedorID",proveedor);
-
-		return "modificar";
-	}
 }

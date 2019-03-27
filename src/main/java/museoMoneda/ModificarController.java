@@ -25,7 +25,7 @@ public class ModificarController {
 	public String modificarMoneda(@RequestParam int monedaID, Model model) {
 		Moneda moneda = repMonedas.findById(monedaID).get();
 		model.addAttribute("moneda",moneda);
-
+		model.addAttribute("src", "moneda");
 		return "modificar";
 	}
 
@@ -61,7 +61,7 @@ public class ModificarController {
 	public String modificarEjemplar(@RequestParam int ejemplarID, Model model) {
 		Ejemplar ejemplar = repEjemplar.findById(ejemplarID).get();
 		model.addAttribute("ejemplar", ejemplar);
-
+		model.addAttribute("src", "ejemplar");
 		return "modificar";
 	}
 
@@ -107,16 +107,22 @@ public class ModificarController {
 	public String modificarProveedor(@RequestParam String proveedorID, Model model) {
 		Proveedor proveedor = repProveedor.findById(proveedorID).get();
 		model.addAttribute("proveedor", proveedor);
-
+		model.addAttribute("src", "proveedor");
 		return "modificar";
 	}
 	
 	@RequestMapping("/actualizar/proveedor")
-	public String actualizarProveedor(@RequestParam String proveedorID, Proveedor proveedor, Model model) {
+	public String actualizarProveedor(@RequestParam String proveedorID, String cif, String nombre, String direccionPostal, String email, int tlf, Model model) {
 		Proveedor proveedorAntiguo = repProveedor.findById(proveedorID).get();
-//		proveedorAntiguo.actualizar(proveedor);
+
+		proveedorAntiguo.setCif(cif);
+		proveedorAntiguo.setNombre(nombre);
+		proveedorAntiguo.setDireccionPostal(direccionPostal);
+		proveedorAntiguo.setEmail(email);
+		proveedorAntiguo.setTlf(tlf);
+
 		repProveedor.save(proveedorAntiguo);
-		proveedor = null;
+
 		model.addAttribute("mensaje", "Proveedor modificado con Éxito.");
 		return "hecho";
 	}
