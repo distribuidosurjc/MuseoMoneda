@@ -11,7 +11,7 @@ import java.sql.Date;
 
 @Controller
 public class EjemplarController {
-
+/*
 	@Autowired
 	public MonedaRepository repMonedas;
 	@Autowired
@@ -46,5 +46,5 @@ public class EjemplarController {
 		model.addAttribute("mensaje", "Ejemplar creado con Éxito.");
 		return "hecho";
 	}
-
+*/
 }

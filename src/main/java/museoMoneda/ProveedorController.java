@@ -8,12 +8,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class ProveedorController {
-	
+	/*
 	@Autowired
 	public ProveedorRepository repProveedor;
 	
 	@RequestMapping("/insertar/proveedor")
-	public String insertar(Proveedor proveedor, Model model) {
+	public String insertarProveedor(Proveedor proveedor, Model model) {
 		if(! repProveedor.existsById(proveedor.getCif())){
 			repProveedor.save(proveedor);
 			model.addAttribute("mensaje", "Proveedor creado con Éxito.");
@@ -22,6 +22,5 @@ public class ProveedorController {
 			model.addAttribute("error", "No se pudo añadir porque ya existe un proveedor con ese CIF.");
 			return "error";
 		}
-
-	}
+	}*/
 }

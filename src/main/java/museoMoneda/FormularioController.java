@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class FormularioController {
-
+/*
 	@Autowired
 	public MonedaRepository repMonedas;
 
@@ -19,5 +19,5 @@ public class FormularioController {
 
 		return "crear";
 	}
-	
+	*/
 }

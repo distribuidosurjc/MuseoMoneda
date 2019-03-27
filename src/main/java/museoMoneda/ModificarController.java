@@ -20,7 +20,7 @@ public class ModificarController {
 	public ProveedorRepository repProveedor;
 
 	// Moneda
-	
+
 	@RequestMapping("/modificar/moneda")
 	public String modificarMoneda(@RequestParam int monedaID, Model model) {
 		Moneda moneda = repMonedas.findById(monedaID).get();
@@ -29,34 +29,49 @@ public class ModificarController {
 		return "modificar";
 	}
 
-	/*@RequestMapping("/actualizar/moneda")
-	public String actualizar(@RequestParam int monedaID, Moneda moneda, Model model) {
-		Moneda monedaAntigua = repMonedas.findById(monedaID).get();
-		monedaAntigua.actualizar(moneda);
-		repMonedas.save(monedaAntigua);
-		moneda = null;
-		model.addAttribute("mensaje", "Moneda modificada con Éxito.");
-		return "hecho";
-	}*/
-
 	@RequestMapping("/actualizar/moneda")
-	public String actualizarMoneda(@RequestParam int monedaID, int valor, String divisa, double diametro, double peso, String composicion, String descripcion, Model model) {
+	public String actualizarMoneda(@RequestParam int monedaID, Integer valor, String divisa, Double diametro, Double peso, String composicion, String descripcion, Model model) {
 		Moneda monedaAntigua = repMonedas.findById(monedaID).get();
-		
-		monedaAntigua.setValor(valor);
-		monedaAntigua.setDivisa(divisa);
-		monedaAntigua.setDiametro(diametro);
-		monedaAntigua.setPeso(peso);
-		monedaAntigua.setComposicion(composicion);
-		monedaAntigua.setDescripcion(descripcion);
-		
-		repMonedas.save(monedaAntigua);
-		model.addAttribute("mensaje", "Moneda modificada con Éxito.");
+
+		int contador = 0;
+
+		if (valor != null) {
+			monedaAntigua.setValor(valor);
+			contador++;
+		} 
+		if (divisa != "") {
+			monedaAntigua.setDivisa(divisa);
+			contador++;
+		}
+		if (diametro != null) {
+			monedaAntigua.setDiametro(diametro);
+			contador++;
+		}
+		if (peso != null) {
+			monedaAntigua.setPeso(peso);
+			contador++;
+		}
+		if (composicion != "") {
+			monedaAntigua.setComposicion(composicion);
+			contador++;
+		}
+		if (descripcion != "") {
+			monedaAntigua.setDescripcion(descripcion);
+			contador++;
+		}
+
+		if (contador > 0) {
+			repMonedas.save(monedaAntigua);
+			model.addAttribute("mensaje", "Moneda modificada con Éxito.");
+		} else {
+			model.addAttribute("mensaje", "No se han realizado cambios.");
+		}
+
 		return "hecho";
 	}
-	
+
 	// Ejemplar
-	
+
 	@RequestMapping("/modificar/ejemplar")
 	public String modificarEjemplar(@RequestParam int ejemplarID, Model model) {
 		Ejemplar ejemplar = repEjemplar.findById(ejemplarID).get();
@@ -66,43 +81,64 @@ public class ModificarController {
 	}
 
 	@RequestMapping("/actualizar/ejemplar")
-	public String actualizarEjemplar(@RequestParam String ejemplarID, int modelo, int year, String ciudad, Date fecha, String estado, String cif, Model model) {
-		
-		Moneda moneda;
-		Proveedor proveedor;
-		
-		if (!repMonedas.existsById(modelo)) {
-			model.addAttribute("error", "No se pudo modificar porque no existe una moneda con este ID.");
-			return "error";
-		} else {
-			moneda = repMonedas.findById(modelo).get();
-		}
+	public String actualizarEjemplar(@RequestParam String ejemplarID, Integer modelo, Integer year, String ciudad, Date fecha, String estado, String cif, Model model) {
 
-		if (!repProveedor.existsById(cif)) {
-			model.addAttribute("error", "No se pudo modificar porque no existe un proveedor con este CIF.");
-			return "error";
-		} else {
-			proveedor = repProveedor.findById(cif).get();
-		}
-
+		int contador = 0;
 		Ejemplar ejemplarAntiguo = repEjemplar.findById(modelo).get();
-		ejemplarAntiguo.setYear(year);
-		ejemplarAntiguo.setCiudad(ciudad);
-		ejemplarAntiguo.setFecha(fecha);
-		ejemplarAntiguo.setEstado(estado);
-		ejemplarAntiguo.setMoneda(moneda);
-		ejemplarAntiguo.setProveedor(proveedor);
 
-		repEjemplar.save(ejemplarAntiguo);
-		model.addAttribute("mensaje", "Ejemplar modificado con Éxito.");
-		
+		if (modelo != null) {
+			contador++;
+			Moneda moneda;
+			if (!repMonedas.existsById(modelo)) {
+				model.addAttribute("error", "No se pudo modificar porque no existe una moneda con este ID.");
+				return "error";
+			} else {
+				moneda = repMonedas.findById(modelo).get();
+				ejemplarAntiguo.setMoneda(moneda);
+			}
+		}
+
+		if (cif != null) {
+			contador++;
+			Proveedor proveedor;
+			if (!repProveedor.existsById(cif)) {
+				model.addAttribute("error", "No se pudo modificar porque no existe un proveedor con este CIF.");
+				return "error";
+			} else {
+				proveedor = repProveedor.findById(cif).get();
+				ejemplarAntiguo.setProveedor(proveedor);
+			}
+		}
+
+		if(year != null) {
+			contador++;
+			ejemplarAntiguo.setYear(year);
+		}
+		if (ciudad != "") {
+			contador++;
+			ejemplarAntiguo.setCiudad(ciudad);
+		}
+		if (fecha != null) {
+			contador++;
+			ejemplarAntiguo.setFecha(fecha);
+		}
+		if (estado != "") {
+			contador++;
+			ejemplarAntiguo.setEstado(estado);
+		}
+
+		if (contador > 0) {
+			repEjemplar.save(ejemplarAntiguo);
+			model.addAttribute("mensaje", "Ejemplar modificado con Éxito.");
+		} else {
+			model.addAttribute("mensaje", "No se han realizado cambios.");
+		}
+
 		return "hecho";
 	}
-	
-	
-	
+
 	// Proveedor
-	
+
 	@RequestMapping("/modificar/proveedor")
 	public String modificarProveedor(@RequestParam String proveedorID, Model model) {
 		Proveedor proveedor = repProveedor.findById(proveedorID).get();
@@ -110,20 +146,37 @@ public class ModificarController {
 		model.addAttribute("src", "proveedor");
 		return "modificar";
 	}
-	
+
 	@RequestMapping("/actualizar/proveedor")
-	public String actualizarProveedor(@RequestParam String proveedorID, String cif, String nombre, String direccionPostal, String email, int tlf, Model model) {
+	public String actualizarProveedor(@RequestParam String proveedorID, String nombre, String direccionPostal, String email, Integer  tlf, Model model) {
+
+		int contador = 0;
 		Proveedor proveedorAntiguo = repProveedor.findById(proveedorID).get();
 
-		proveedorAntiguo.setCif(cif);
-		proveedorAntiguo.setNombre(nombre);
-		proveedorAntiguo.setDireccionPostal(direccionPostal);
-		proveedorAntiguo.setEmail(email);
-		proveedorAntiguo.setTlf(tlf);
+		if (nombre != "") {
+			contador++;
+			proveedorAntiguo.setNombre(nombre);
+		}
+		if (direccionPostal != "") {
+			contador++;
+			proveedorAntiguo.setDireccionPostal(direccionPostal);
+		}
+		if (email != "") {
+			contador++;
+			proveedorAntiguo.setEmail(email);
+		}
+		if (tlf != null) {
+			contador++;
+			proveedorAntiguo.setTlf(tlf);
+		}
 
-		repProveedor.save(proveedorAntiguo);
+		if (contador > 0) {
+			repProveedor.save(proveedorAntiguo);
+			model.addAttribute("mensaje", "Proveedor modificado con Éxito.");
+		} else {
+			model.addAttribute("mensaje", "No se han realizado cambios.");			
+		}
 
-		model.addAttribute("mensaje", "Proveedor modificado con Éxito.");
 		return "hecho";
 	}
 

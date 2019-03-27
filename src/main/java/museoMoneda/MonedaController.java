@@ -9,16 +9,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class MonedaController {
-
+/*
 	@Autowired
 	public MonedaRepository repMonedas;
 
 
 	@RequestMapping("/insertar/moneda")
-	public String insertar(Moneda moneda, Model model) {
+	public String insertarMoneda(Moneda moneda, Model model) {
 		repMonedas.save(moneda);
 		model.addAttribute("mensaje", "Moneda creada con Éxito.");
 		return "hecho";
 	}
-	
+	*/
 }

@@ -127,6 +127,10 @@ table.seleccionadas td:first-child {
 		rgba(0, 0, 0, 0.12)
 }
 
+.centrada {
+	margin: auto
+}
+
 .cabecera {
 	font-size: 48px
 }
