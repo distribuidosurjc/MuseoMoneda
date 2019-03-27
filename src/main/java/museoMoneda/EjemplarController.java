@@ -41,21 +41,10 @@ public class EjemplarController {
 
 
 		Ejemplar ejemplar = new Ejemplar(moneda, year, ciudad, fecha, estado, proveedor);
-
-
-		String src = "ejemplar";
-		model.addAttribute("src", src);
 		repEjemplar.save(ejemplar);
-
+	
+		model.addAttribute("mensaje", "Ejemplar creado con Éxito.");
 		return "hecho";
 	}
-	@RequestMapping("/modificar/ejemplar")
-	public String modificar(@RequestParam int ejemplarID, Model model) {
-		String num = "ejemplar";
-		model.addAttribute("src",num);
-		Ejemplar ejemplar = repEjemplar.findById(ejemplarID).get();
-		model.addAttribute("ejemplarID", ejemplar);
 
-		return "modificar";
-	}
 }

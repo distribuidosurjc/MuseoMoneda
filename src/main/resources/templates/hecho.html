@@ -17,14 +17,8 @@
 
 <body>
 	<div class="centrado margen-top">
-		<div th:if="${src == 'moneda'}" id="cabecera">
-			<h3>Moneda añadida con éxito</h3>
-		</div>
-		<div th:if="${src == 'ejemplar'}" id="cabecera">
-			<h3>Ejemplar añadido con éxito</h3>
-		</div>
-		<div th:if="${src == 'proveedor'}" id="cabecera">
-			<h3>Proveedor añadido con éxito</h3>
+		<div id="cabecera">
+			<h3><span th:text="${mensaje}"></span></h3>
 		</div>
 		<a class="boton fondo" id="Volver" href="/">Volver</a>
 	</div>

@@ -93,7 +93,7 @@ public class Moneda implements Comparable {
 		
 		return 0;
 	}
-
+/*
 	public void actualizar(Moneda moneda) {
 		this.valor = moneda.valor;
 		this.divisa = moneda.divisa;
@@ -102,7 +102,7 @@ public class Moneda implements Comparable {
 		this.composicion = moneda.composicion;
 		this.descripcion = moneda.descripcion;
 	}
-	
+*/	
 	
 	
 }

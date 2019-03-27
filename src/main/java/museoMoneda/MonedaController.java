@@ -16,10 +16,8 @@ public class MonedaController {
 
 	@RequestMapping("/insertar/moneda")
 	public String insertar(Moneda moneda, Model model) {
-		String src = "moneda";
-		model.addAttribute("src", src);
 		repMonedas.save(moneda);
-
+		model.addAttribute("mensaje", "Moneda creada con Éxito.");
 		return "hecho";
 	}
 	
