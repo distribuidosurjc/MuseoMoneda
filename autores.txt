@@ -23,7 +23,8 @@ Nombre completo: Guillermo García Maroto
 DNI: 50359920V
 Correo: g.garciamaro@alumnos.urjc.es
 Participación:
-- Trabajado en tocarme los huevos a dos manos
+-  Implementación de modificar.html, ModificarController.java.
+- Trabajado en style.css, EjemplarRepository.java, Ejemplar.java, ...
 
 Nombre completo: Daniel Martín de Castro
 DNI: 04856929L
