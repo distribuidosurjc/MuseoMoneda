@@ -96,6 +96,13 @@ table.seleccionadas td:first-child {
 	padding: 0 8px;
 }
 
+.marco {
+	padding: 0.01em 16px;
+	min-height: 460px;
+	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0
+		rgba(0, 0, 0, 0.12);
+}
+
 .contenedor {
 	padding: 0.01em 16px
 }

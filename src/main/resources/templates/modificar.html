@@ -17,42 +17,44 @@
 
 	<!-- Caso moneda -->
 
-	<div th:if="${src == 'moneda'}" >
+	<div th:if="${src == 'moneda'}">
 
 		<div class="centrado margen-top" th:with="id=${moneda.modelo}">
 
 			<!-- Columna antigua -->
 			<div class="columna">
-				<div class="borde contenedor" style="min-height: 460px">
+				<div class="marco">
 					<h3>Datos Actuales de la Moneda</h3>
 					<img src="/img/moneda.png" alt="Moneda" height="120" width="120"><br>
 					<br>
-					<table>
-						<tr>
-							<td><label class="Etiquetas">Valor Facial:</label></td>
-							<td><span th:text="${moneda.valor}"></span></td>
-						</tr>
-						<tr>
-							<td><label class="Etiquetas">Divisa:</label></td>
-							<td><span th:text="${moneda.divisa}"></span></td>
-						</tr>
-						<tr>
-							<td><label class="Etiquetas">Diámetro:</label></td>
-							<td><span th:text="${moneda.diametro}"></span></td>
-						</tr>
-						<tr>
-							<td><label class="Etiquetas">Peso:</label></td>
-							<td><span th:text="${moneda.peso}"></span></td>
-						</tr>
-						<tr>
-							<td><label class="Etiquetas">Composición:</label></td>
-							<td><span th:text="${moneda.composicion}"></span></td>
-						</tr>
-						<tr>
-							<td><label class="Etiquetas">Descripción:</label></td>
-							<td><span th:text="${moneda.descripcion}"></span></td>
-						</tr>
-					</table>
+					<div class="columna">
+						<table>
+							<tr>
+								<td><label class="Etiquetas">Valor Facial:</label></td>
+								<td><span th:text="${moneda.valor}"></span></td>
+							</tr>
+							<tr>
+								<td><label class="Etiquetas">Divisa:</label></td>
+								<td><span th:text="${moneda.divisa}"></span></td>
+							</tr>
+							<tr>
+								<td><label class="Etiquetas">Diámetro:</label></td>
+								<td><span th:text="${moneda.diametro}"></span></td>
+							</tr>
+							<tr>
+								<td><label class="Etiquetas">Peso:</label></td>
+								<td><span th:text="${moneda.peso}"></span></td>
+							</tr>
+							<tr>
+								<td><label class="Etiquetas">Composición:</label></td>
+								<td><span th:text="${moneda.composicion}"></span></td>
+							</tr>
+							<tr>
+								<td><label class="Etiquetas">Descripción:</label></td>
+								<td><span th:text="${moneda.descripcion}"></span></td>
+							</tr>
+						</table>
+					</div>
 					<br> <br>
 					<div class="centrado">
 						<a class="boton fondo centrado" id="Volver" href="/">Volver</a>
@@ -62,11 +64,12 @@
 
 			<!-- Columna modificar -->
 			<div class="columna">
-				<div class="borde contenedor" style="min-height: 460px">
+				<div class="marco">
 					<h3>Nuevos Datos de la Moneda</h3>
 					<img src="/img/moneda.png" alt="Moneda" height="120" width="120"><br>
 					<br>
-					<form id='actualizar/moneda' action=# th:action="@{/actualizar/moneda(monedaID=${moneda.modelo})}"
+					<form id='actualizar/moneda' action=#
+						th:action="@{/actualizar/moneda(monedaID=${moneda.modelo})}"
 						method="post">
 						<table>
 							<tr>
