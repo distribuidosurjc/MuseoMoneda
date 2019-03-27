@@ -34,7 +34,8 @@
 							<tr>
 								<td><label class="Etiquetas">Valor Facial:</label></td>
 								<td><input type='number' min="0" class="campos"
-									name='valor' placeholder="Numero Entero" required /></td>
+									name='valor' placeholder="Numero Entero" autofocus="autofocus"
+									required /></td>
 							</tr>
 							<tr>
 								<td><label class="Etiquetas">Divisa:</label></td>
@@ -81,9 +82,9 @@
 						<table>
 							<tr>
 								<td><label class="Etiquetas">Modelo:</label></td>
-
 								<td><input type="number" min="1" class="campos"
-									name='modelo' placeholder="Número de Serie" required /></td>
+									name='modelo' placeholder="Número de Serie"
+									autofocus="autofocus" a required /></td>
 							</tr>
 							<tr>
 								<td><label class="Etiquetas">Año:</label></td>
@@ -122,7 +123,6 @@
 							</tr>
 							<tr>
 								<td><label class="Etiquetas">Proveedor:</label></td>
-
 								<td><input type='text' class="campos" name='cif'
 									placeholder="CIF" required /></td>
 							</tr>
@@ -145,8 +145,7 @@
 						<table>
 							<tr>
 								<td><label class="Etiquetas">CIF:</label></td>
-
-								<td><input type='text' class="campos" name='cif'
+								<td><input type='text' class="campos" name='cif' autofocus="autofocus"
 									pattern="[A-Z]\d{7}([A-Z]|\d)" placeholder="A1234567B" required /></td>
 							</tr>
 							<tr>

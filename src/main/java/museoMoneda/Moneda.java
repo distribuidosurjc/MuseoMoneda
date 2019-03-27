@@ -6,13 +6,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Moneda implements Comparable {
+public class Moneda {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int modelo;
 	
-//	private String modelo;
 	private int valor;
 	private String divisa;
 	private double diametro;
@@ -25,7 +24,6 @@ public class Moneda implements Comparable {
 	}
 
 	public Moneda(int valor, String divisa, double diametro, double peso, String composicion, String descripcion) {
-		//this.modelo = modelo;
 		this.valor = valor;
 		this.divisa = divisa;
 		this.diametro = diametro;
@@ -84,25 +82,6 @@ public class Moneda implements Comparable {
 
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
-	}
-
-	@Override
-	public int compareTo(Object arg0) {
-		Moneda m = (Moneda) arg0;
-		
-		
-		return 0;
-	}
-/*
-	public void actualizar(Moneda moneda) {
-		this.valor = moneda.valor;
-		this.divisa = moneda.divisa;
-		this.diametro = moneda.diametro;
-		this.peso = moneda.peso;
-		this.composicion = moneda.composicion;
-		this.descripcion = moneda.descripcion;
-	}
-*/	
-	
+	}	
 	
 }

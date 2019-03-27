@@ -27,6 +27,7 @@ public class MostrarController {
 			Model model) {
 		return "buscarYmostrar";
 	}
+
 	@RequestMapping("/buscar/{src}/{av}/mon")
 	public String buscadoMoneda(
 			@PathVariable(value="src") String src,
@@ -41,14 +42,24 @@ public class MostrarController {
 		List<Moneda> lista;
 
 		if(valor=="" && divisa=="") {
+			model.addAttribute("mensaje", "Todas las Monedas");
 			lista = repMonedas.findAll();
-		} else if(divisa=="") {
-			lista = repMonedas.findByValor(Integer.parseInt(valor));
-		} else if(valor==""){
-			lista = repMonedas.findByDivisa(divisa);
-		}else {
-			lista = repMonedas.findByDivisaAndValor(divisa, Integer.parseInt(valor));
+		} else {
+			if(divisa=="") {
+				lista = repMonedas.findByValor(Integer.parseInt(valor));
+			} else if(valor==""){
+				lista = repMonedas.findByDivisa(divisa);
+			}else {
+				lista = repMonedas.findByDivisaAndValor(divisa, Integer.parseInt(valor));
+			}
+
+			if (lista.size()>1) {
+				model.addAttribute("mensaje", "Monedas Encontradas");
+			} else {
+				model.addAttribute("mensaje", "Moneda Encontrada");
+			}
 		}
+
 
 		switch (orden) {
 		case "Divisa":
@@ -68,6 +79,7 @@ public class MostrarController {
 
 		return "buscarYmostrar";
 	}
+
 	@RequestMapping("/buscar/{src}/{av}/pro")
 	public String buscadoProveedor(
 			@PathVariable(value="src") String src,
@@ -81,15 +93,24 @@ public class MostrarController {
 
 		if(nombre=="" && cif=="") {
 			lista = repProveedor.findAll();
-		}else if(nombre=="") {
-			lista = new ArrayList<Proveedor>();
-			lista.add(repProveedor.findById(cif).get());
-		}else if(cif==""){
-			lista = repProveedor.findByNombre(nombre);
-		}else {
-			lista = repProveedor.findByCifAndNombre(cif, nombre);
+			model.addAttribute("mensaje", "Todos las Proveedores");
+		} else {
+			if(nombre=="") {
+				lista = new ArrayList<Proveedor>();
+				lista.add(repProveedor.findById(cif).get());
+			} else if(cif==""){
+				lista = repProveedor.findByNombre(nombre);
+			} else {
+				lista = repProveedor.findByCifAndNombre(cif, nombre);
+			}
+
+			if (lista.size()>1) {
+				model.addAttribute("mensaje", "Proveedores Encontrados");
+			} else {
+				model.addAttribute("mensaje", "Proveedor Encontrado");
+			}
 		}
-		
+
 		switch(orden) {
 		case "CIF":
 			lista.sort(cmpPrvCIF);
@@ -102,28 +123,38 @@ public class MostrarController {
 
 		return "buscarYmostrar";
 	}
+
 	@RequestMapping("/buscar/{src}/{av}/ejem")
 	public String buscadoEjemplar(
 			@PathVariable(value="src") String src,
 			@PathVariable(value="av") String av,
 			String estado, String ciudad, String orden,  Model model) {
-		
+
 		Comparator<Ejemplar> cmpEjmCiudad = (p1, p2) -> p1.getCiudad().compareTo(p2.getCiudad());
 		Comparator<Ejemplar> cmpEjmEstado = (p1, p2) -> p1.getEstado().compareTo(p2.getEstado());
 		Comparator<Ejemplar> cmpEjmFecha = (p1, p2) -> p1.getFecha().compareTo(p2.getFecha());
-		
+
 		List<Ejemplar> lista;
-		
+
 		if(estado=="" && ciudad =="") {
 			lista = repEjemplar.findAll();
-		}else if(ciudad=="") {
-			lista = repEjemplar.findByEstado(estado);
-		}else if(estado==""){
-			lista = repEjemplar.findByCiudad(ciudad);
-		}else {
-			lista = repEjemplar.findByEstadoAndCiudad(estado, ciudad);
+			model.addAttribute("mensaje", "Todos los Ejemplares");
+		} else {
+			if(ciudad=="") {
+				lista = repEjemplar.findByEstado(estado);
+			} else if(estado==""){
+				lista = repEjemplar.findByCiudad(ciudad);
+			} else {
+				lista = repEjemplar.findByEstadoAndCiudad(estado, ciudad);
+			}
+
+			if (lista.size()>1) {
+				model.addAttribute("mensaje", "Ejemplares Encontrados");
+			} else {
+				model.addAttribute("mensaje", "Ejemplar Encontrado");
+			}
 		}
-		
+
 		switch(orden) {
 		case "Ciudad":
 			lista.sort(cmpEjmCiudad);
@@ -134,10 +165,10 @@ public class MostrarController {
 		default:
 			lista.sort(cmpEjmFecha);
 		}
-		
+
 		model.addAttribute("ejemplares", lista);
 
 		return "buscarYmostrar";
-		
+
 	}
 }

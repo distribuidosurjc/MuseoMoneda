@@ -20,26 +20,28 @@
 		<div th:if="${src == 'moneda'}">
 			<div>
 				<form action="/buscar/moneda/on/mon" method="post">
-					<input id="buscador" type='search' class="campos" name='divisa' autofocus="autofocus"
-							placeholder="Divisa">
-					<input id="buscador" type='search' class="campos" name='valor'
-							placeholder="Valor Facial">
-					<input id="Buscar2" type='submit' class="boton fondo" name='buscar' value='Buscar'>
-					<p>Ordenar por:  </p>
-					<select name='orden'>
+					<input id="buscador" type='search' class="campos" name='divisa'
+						autofocus="autofocus" placeholder="Divisa"> <input
+						id="buscador" type='search' class="campos" name='valor'
+						placeholder="Valor Facial"> <input id="Buscar2"
+						type='submit' class="boton fondo" name='buscar' value='Buscar'>
+					<label class="Etiquetas">Ordenar por:</label> <select name='orden'>
 						<option>Divisa</option>
 						<option selected>Valor Facial</option>
 						<option>Peso</option>
 						<option>Diámetro</option>
 					</select>
 				</form>
+				<br>
 			</div>
 
 			<div id="Mostrar" th:if="${av == 'on'}">
 				<h1 th:if="${#lists.isEmpty(monedas)}">Moneda no encontrada</h1>
 				<div th:unless=="${#lists.isEmpty(monedas)}">
-					<h3>Moneda encontrada</h3>
-					<table class = "seleccionadas">
+					<h3>
+						<span th:text="${mensaje}"></span>
+					</h3>
+					<table class="seleccionadas">
 						<tr>
 							<th>Modelo</th>
 							<th>Valor</th>
@@ -52,41 +54,45 @@
 						</tr>
 						<p th:each="moneda : ${monedas}">
 						<tr>
-							<td class = "primeraDeFila"><span th:text="${moneda.modelo}"></span></td>
+							<td class="primeraDeFila"><span th:text="${moneda.modelo}"></span></td>
 							<td><span th:text="${moneda.valor}"></span></td>
 							<td><span th:text="${moneda.divisa}"></span></td>
 							<td><span th:text="${moneda.diametro}"></span></td>
 							<td><span th:text="${moneda.peso}"></span></td>
 							<td><span th:text="${moneda.composicion}"></span></td>
 							<td><span th:text="${moneda.descripcion}"></span></td>
-							<td><a th:href="@{/modificar/moneda(monedaID=${moneda.modelo})}">Modificar</a></td>
+							<td><a
+								th:href="@{/modificar/moneda(monedaID=${moneda.modelo})}">Modificar</a></td>
 						</tr>
 						</p>
 					</table>
 				</div>
 			</div>
 		</div>
-		
+
 		<div th:if="${src == 'proveedor'}">
 			<div>
 				<form action="/buscar/proveedor/on/pro" method="post">
-					<input id="buscador" type='search' class="campos" name='nombre' autofocus="autofocus"
-							placeholder="Nombre">
-					<input id="buscador" type='search' class="campos" name='cif'
-							placeholder="CIF">
-					<input id="Buscar2" class="boton fondo" type='submit' name='buscar' value='Buscar'>
-					<p>Ordenar por:  </p>
-					<select name='orden'>
+					<input id="buscador" type='search' class="campos" name='nombre'
+						autofocus="autofocus" placeholder="Nombre"> <input
+						id="buscador" type='search' class="campos" name='cif'
+						placeholder="CIF"> <input id="Buscar2" class="boton fondo"
+						type='submit' name='buscar' value='Buscar'> <label
+						class="Etiquetas">Ordenar por:</label> <select name='orden'>
 						<option>CIF</option>
 						<option>Nombre</option>
 					</select>
 				</form>
+				<br>
 			</div>
 
 			<div id="Mostrar" th:if="${av == 'on'}">
-				<h1 th:if="${#lists.isEmpty(proveedores)}">proveedor no encontrado</h1>
+				<h1 th:if="${#lists.isEmpty(proveedores)}">proveedor no
+					encontrado</h1>
 				<div th:unless=="${#lists.isEmpty(proveedores)}">
-					<h3>Proveedor encontrado</h3>
+					<h3>
+						<span th:text="${mensaje}"></span>
+					</h3>
 					<table class="seleccionadas">
 						<tr>
 							<th>CIF</th>
@@ -96,14 +102,15 @@
 							<th>Telefono</th>
 							<th></th>
 						</tr>
-					<p th:each="proveedor : ${proveedores}">
-					<tr>
+						<p th:each="proveedor : ${proveedores}">
+						<tr>
 							<th><span th:text="${proveedor.cif}"></span></th>
 							<td><span th:text="${proveedor.nombre}"></span></td>
 							<td><span th:text="${proveedor.direccionPostal}"></span></td>
 							<td><span th:text="${proveedor.email}"></span></td>
 							<td><span th:text="${proveedor.tlf}"></span></td>
-							<td><a th:href="@{/modificar/proveedor(proveedorID=${proveedor.cif})}">Modificar</a></td>
+							<td><a
+								th:href="@{/modificar/proveedor(proveedorID=${proveedor.cif})}">Modificar</a></td>
 						</tr>
 						</p>
 					</table>
@@ -111,28 +118,31 @@
 				</div>
 			</div>
 		</div>
-		
+
 		<div th:if="${src == 'ejemplar'}">
 			<div>
 				<form action="/buscar/ejemplar/on/ejem" method="post">
-					<input id="buscador" type='search' class="campos" name='estado' autofocus="autofocus"
-							placeholder="Estado">
-					<input id="buscador" type='search' class="campos" name='ciudad'
-							placeholder="Ciudad">
-					<input id="Buscar2" class="boton fondo" type='submit' name='buscar' value='Buscar'>
-					<p>Ordenar por:  </p>
-					<select name='orden'>
+					<input id="buscador" type='search' class="campos" name='estado'
+						autofocus="autofocus" placeholder="Estado"> <input
+						id="buscador" type='search' class="campos" name='ciudad'
+						placeholder="Ciudad"> <input id="Buscar2"
+						class="boton fondo" type='submit' name='buscar' value='Buscar'>
+					<label class="Etiquetas">Ordenar por:</label> <select name='orden'>
 						<option>Ciudad</option>
 						<option>Estado</option>
 						<option>Fecha</option>
 					</select>
 				</form>
+				<br>
 			</div>
 
 			<div id="Mostrar" th:if="${av == 'on'}">
-				<h1 th:if="${#lists.isEmpty(ejemplares)}">ejemplar no encontrado</h1>
+				<h1 th:if="${#lists.isEmpty(ejemplares)}">Ejemplar no
+					encontrado</h1>
 				<div th:unless=="${#lists.isEmpty(ejemplares)}">
-					<h3>ejemplar encontrado</h3>
+					<h3>
+						<span th:text="${mensaje}"></span>
+					</h3>
 					<table class="seleccionadas">
 						<tr>
 							<th>ID</th>
@@ -144,8 +154,8 @@
 							<th>CIF</th>
 							<th></th>
 						</tr>
-					<p th:each="ejemplar : ${ejemplares}">
-					<tr>
+						<p th:each="ejemplar : ${ejemplares}">
+						<tr>
 							<th><span th:text="${ejemplar.id}"></span></th>
 							<td><span th:text="${ejemplar.year}"></span></td>
 							<td><span th:text="${ejemplar.ciudad}"></span></td>
@@ -153,7 +163,8 @@
 							<td><span th:text="${ejemplar.estado}"></span></td>
 							<td><span th:text="${ejemplar.moneda.modelo}"></span></td>
 							<td><span th:text="${ejemplar.proveedor.cif}"></span></td>
-							<td><a th:href="@{/modificar/ejemplar(ejemplarID=${ejemplar.id})}">Modificar</a></td>
+							<td><a
+								th:href="@{/modificar/ejemplar(ejemplarID=${ejemplar.id})}">Modificar</a></td>
 						</tr>
 						</p>
 					</table>
@@ -161,7 +172,7 @@
 				</div>
 			</div>
 		</div>
-		<br><a class="boton fondo" id="Volver" href="/">Volver</a>
+		<br> <a class="boton fondo" id="Volver" href="/">Volver</a>
 	</div>
 </body>
 </html>
