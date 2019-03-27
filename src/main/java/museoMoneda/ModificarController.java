@@ -66,7 +66,7 @@ public class ModificarController {
 	}
 
 	@RequestMapping("/actualizar/ejemplar")
-	public String actualizar(@RequestParam String ejemplarID, int modelo, int year, String ciudad, Date fecha, String estado, String cif, Model model) {
+	public String actualizarEjemplar(@RequestParam String ejemplarID, int modelo, int year, String ciudad, Date fecha, String estado, String cif, Model model) {
 		
 		Moneda moneda;
 		Proveedor proveedor;
