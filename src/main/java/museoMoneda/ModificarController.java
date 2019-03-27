@@ -25,12 +25,12 @@ public class ModificarController {
 	}
 
 	@RequestMapping("/actualizar/moneda")
-	public String actualizar(Moneda moneda, Model model) {
-/*
-		Moneda monedaAntigua = repMonedas.findById(id).get();
+	public String actualizar(@RequestParam int monedaID, Moneda moneda, Model model) {
+		Moneda monedaAntigua = repMonedas.findById(monedaID).get();
+		//model.addAttribute("error", monedaAntigua.getDescripcion());
 		monedaAntigua.actualizar(moneda);
+		repMonedas.save(monedaAntigua);
 		moneda = null;
-		repMonedas.save(moneda);*/
 		return "hecho";
 	}
 

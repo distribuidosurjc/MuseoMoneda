@@ -66,7 +66,7 @@
 					<h3>Nuevos Datos de la Moneda</h3>
 					<img src="/img/moneda.png" alt="Moneda" height="120" width="120"><br>
 					<br>
-					<form id='actualizar/moneda' action="/actualizar/moneda"
+					<form id='actualizar/moneda' action=# th:action="@{/actualizar/moneda(monedaID=${moneda.modelo})}"
 						method="post">
 						<table>
 							<tr>
