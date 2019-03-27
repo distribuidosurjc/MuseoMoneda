@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Se ha añadido a la base de datos</title>
+<title>Error</title>
 <link rel="stylesheet" type="text/css" href="../static/css/styles.css"
 	th:href="@{/css/styles.css}" />
 </head>
@@ -18,7 +18,8 @@
 <body>
 	<div class="centrado margen-top">
 		<div id="cabecera">
-			<h3><span th:text="${mensaje}"></span></h3>
+			<h3>Ha ocurrido un error.</h3>
+			<h4><span th:text="${error}"></span></h4>
 		</div>
 		<a class="boton fondo" id="Volver" href="/">Volver</a>
 	</div>
