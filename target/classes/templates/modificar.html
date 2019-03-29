@@ -115,5 +115,209 @@
 		<!-- ambas columnas -->
 	</div>
 	<!-- caso moneda -->
+
+	<!-- Caso proveedor -->
+	<div th:if="${src == 'proveedor'}">
+
+		<div class="centrado margen-top" th:with="id=${proveedor.cif}">
+
+			<!-- Columna antigua -->
+			<div class="columna">
+				<div class="marco">
+					<h3>Datos Actuales del Proveedor</h3>
+					<img src="/img/proveedor.png" alt="Proveedor" height="120"
+						width="120"><br> <br>
+					<table class="centrada">
+						<tr>
+							<td><label class="Etiquetas">CIF:</label></td>
+							<td><span th:text="${proveedor.cif}"></span></td>
+						</tr>
+						<tr>
+							<td><label class="Etiquetas">Nombre:</label></td>
+							<td><span th:text="${proveedor.nombre}"></span></td>
+						</tr>
+						<tr>
+							<td><label class="Etiquetas">Dirección Postal:</label></td>
+							<td><span th:text="${proveedor.direccionPostal}"></span></td>
+						</tr>
+						<tr>
+							<td><label class="Etiquetas">E-mail:</label></td>
+							<td><span th:text="${proveedor.email}"></span></td>
+						</tr>
+						<tr>
+							<td><label class="Etiquetas">Teléfono de contecto:</label></td>
+							<td><span th:text="${proveedor.tlf}"></span></td>
+						</tr>
+					</table>
+					<br> <br>
+					<div class="centrado">
+						<a class="boton fondo centrado" id="Volver" href="/">Volver</a>
+					</div>
+				</div>
+			</div>
+
+			<!-- Columna modificar -->
+			<div class="columna">
+				<div class="marco">
+					<h3>Nuevos Datos del Proveedor</h3>
+					<img src="/img/proveedor.png" alt="Proveedor" height="120"
+						width="120"><br> <br>
+					<form id='actualizar/proveedor' action=#
+						th:action="@{/actualizar/proveedor(proveedorID=${proveedor.cif})}"
+						method="post">
+						<table>
+							<tr>
+								<td><label class="Etiquetas">CIF:</label></td>
+								<td><input type='number' min="0" class="campos"
+									autofocus="autofocus" name='cif' placeholder="A1234567B"
+									pattern="[A-Z]\d{7}([A-Z]|\d)" /></td>
+							</tr>
+							<tr>
+								<td><label class="Etiquetas">Nombre:</label></td>
+								<td><input type='text' class="campos" name='nombre'
+									placeholder="Proveedor SL" /></td>
+							</tr>
+							<tr>
+								<td><label class="Etiquetas">Dirección Postal:</label></td>
+								<td><input type='text' class="campos"
+									name='direccionPostal' placeholder="Calle Falsa 123" /></td>
+							</tr>
+							<tr>
+								<td><label class="Etiquetas">E-mail:</label></td>
+								<td><input type='text' class="campos" name='email'
+									placeholder="correo@empresa.dom" /></td>
+							</tr>
+							<tr>
+								<td><label class="Etiquetas">Teléfono de contecto:</label></td>
+								<td><input type='text' class="campos" name='tlf'
+									placeholder="123456789" pattern="[0-9]{9}" /></td>
+							</tr>
+						</table>
+						<div class='centrado'>
+							<input type='submit' class="boton fondo" name='enviar'
+								value='Enviar' />
+						</div>
+						<!-- botón -->
+					</form>
+				</div>
+				<!-- nuevos datos -->
+			</div>
+			<!-- columna modificar -->
+		</div>
+		<!-- ambas columnas -->
+	</div>
+	<!-- caso proveedor -->
+
+	<!-- Caso Ejemplar -->
+	<div th:if="${src == 'ejemplar'}">
+
+		<div class="centrado margen-top" th:with="id=${ejemplar.id}">
+
+			<!-- Columna antigua -->
+			<div class="columna">
+				<div class="marco">
+					<h3>Datos Actuales del Ejemplar</h3>
+					<img src="/img/adquisicion.png" alt="Ejemplar" height="120"
+						width="120"><br> <br>
+					<table class="centrada">
+						<tr>
+							<td><label class="Etiquetas">Modelo:</label></td>
+							<td><span th:text="${ejemplar.moneda.modelo}"></span></td>
+						</tr>
+						<tr>
+							<td><label class="Etiquetas">Año:</label></td>
+							<td><span th:text="${ejemplar.year}"></span></td>
+						</tr>
+						<tr>
+							<td><label class="Etiquetas">Ciudad de Acuñación:</label></td>
+							<td><span th:text="${ejemplar.ciudad}"></span></td>
+						</tr>
+						<tr>
+							<td><label class="Etiquetas">Fecha de Adquisición:</label></td>
+							<td><span th:text="${ejemplar.fecha}"></span></td>
+						</tr>
+						<tr>
+							<td><label class="Etiquetas">Estado de Conservación:</label></td>
+							<td><span th:text="${ejemplar.estado}"></span></td>
+						</tr>
+						<tr>
+							<td><label class="Etiquetas">Proveedor:</label></td>
+							<td><span th:text="${ejemplar.proveedor.cif}"></span></td>
+						</tr>
+					</table>
+					<br> <br>
+					<div class="centrado">
+						<a class="boton fondo centrado" id="Volver" href="/">Volver</a>
+					</div>
+				</div>
+			</div>
+
+			<!-- Columna modificar -->
+			<div class="columna">
+				<div class="marco">
+					<h3>Nuevos Datos del Ejemplar</h3>
+					<img src="/img/adquisicion.png" alt="Adquisicion" height="120"
+						width="120"><br> <br>
+					<form id='actualizar/ejemplar' action=#
+						th:action="@{/actualizar/ejemplar(ejemplarID=${ejemplar.id})}"
+						method="post">
+						<table>
+							<tr>
+								<td><label class="Etiquetas">Modelo:</label></td>
+								<td><input type='number' min="1" class="campos"
+									autofocus="autofocus" name='modelo'
+									placeholder="Número de Serie" /></td>
+							</tr>
+							<tr>
+								<td><label class="Etiquetas">Año de adquisición:</label></td>
+								<td><input type='text' class="campos" name='year'
+									max="2019" placeholder="2019" /></td>
+							</tr>
+							<tr>
+								<td><label class="Etiquetas">Ciudad de Acuñación:</label></td>
+								<td><input type='text' class="campos" name='ciudad'
+									placeholder="Madrid, Lisboa..." /></td>
+							</tr>
+							<tr>
+								<td><label class="Etiquetas">Fecha de Adquisición:</label></td>
+								<td><input type='date' class="campos" name='fecha'
+									max="2019-06-01" /></td>
+							</tr>
+							<tr>
+								<td><label class="Etiquetas">Estado de
+										Conservación:</label></td>
+								<td><select name="estado">
+										<option value="PRF">Pruebas</option>
+										<option value="FDC">Flor de Cuño</option>
+										<option value="SC">Sin Circular</option>
+										<option value="EBC">Excelente Buena Conservación</option>
+										<option value="MBC">Muy Buena Conservación</option>
+										<option value="BC+">Buena Conservación Plus</option>
+										<option value="BC">Buena Conservación</option>
+										<option value="RC">Regular Conservación</option>
+										<option value="MC">Mala Conservación</option>
+								</select></td>
+							</tr>
+							<tr>
+								<td><label class="Etiquetas">Proveedor:</label></td>
+								<td><input type='text' class="campos" name='cif'
+									placeholder="CIF" /></td>
+							</tr>
+						</table>
+						<div class='centrado'>
+							<input type='submit' class="boton fondo" name='enviar'
+								value='Enviar' />
+						</div>
+						<!-- botón -->
+					</form>
+				</div>
+				<!-- nuevos datos -->
+			</div>
+			<!-- columna modificar -->
+		</div>
+		<!-- ambas columnas -->
+	</div>
+	<!-- caso Ejemplar -->
+	
 </body>
 </html>

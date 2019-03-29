@@ -81,10 +81,10 @@ public class ModificarController {
 	}
 
 	@RequestMapping("/actualizar/ejemplar")
-	public String actualizarEjemplar(@RequestParam String ejemplarID, Integer modelo, Integer year, String ciudad, Date fecha, String estado, String cif, Model model) {
-
+	public String actualizarEjemplar(@RequestParam int ejemplarID, Integer modelo, Integer year, String ciudad, Date fecha, String estado, String cif, Model model) {
+		
 		int contador = 0;
-		Ejemplar ejemplarAntiguo = repEjemplar.findById(modelo).get();
+		Ejemplar ejemplarAntiguo = repEjemplar.findById(ejemplarID).get();
 
 		if (modelo != null) {
 			contador++;
@@ -98,7 +98,7 @@ public class ModificarController {
 			}
 		}
 
-		if (cif != null) {
+		if (cif != "") {
 			contador++;
 			Proveedor proveedor;
 			if (!repProveedor.existsById(cif)) {
@@ -114,14 +114,17 @@ public class ModificarController {
 			contador++;
 			ejemplarAntiguo.setYear(year);
 		}
+		
 		if (ciudad != "") {
 			contador++;
 			ejemplarAntiguo.setCiudad(ciudad);
 		}
+		
 		if (fecha != null) {
 			contador++;
 			ejemplarAntiguo.setFecha(fecha);
 		}
+		
 		if (estado != "") {
 			contador++;
 			ejemplarAntiguo.setEstado(estado);
