@@ -1,6 +1,8 @@
 package museoMoneda;
 
 import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -81,7 +83,7 @@ public class ModificarController {
 	}
 
 	@RequestMapping("/actualizar/ejemplar")
-	public String actualizarEjemplar(@RequestParam int ejemplarID, Integer modelo, Integer year, String ciudad, Date fecha, String estado, String cif, Model model) {
+	public String actualizarEjemplar(@RequestParam int ejemplarID, Integer modelo, Integer year, String ciudad, Date fecha, String estado, String cif, Model model) throws ParseException {
 		
 		int contador = 0;
 		Ejemplar ejemplarAntiguo = repEjemplar.findById(ejemplarID).get();
@@ -120,9 +122,13 @@ public class ModificarController {
 			ejemplarAntiguo.setCiudad(ciudad);
 		}
 		
-		if (fecha != null) {
+		String fechaPre ="1970-01-01";
+		SimpleDateFormat formatoDeFecha = new SimpleDateFormat("yyyy/MM/dd");
+		if (!fecha.equals(fechaPre)) {
 			contador++;
 			ejemplarAntiguo.setFecha(fecha);
+		}else {
+			fecha= (Date) formatoDeFecha.parse(fechaPre);
 		}
 		
 		if (estado != "") {
