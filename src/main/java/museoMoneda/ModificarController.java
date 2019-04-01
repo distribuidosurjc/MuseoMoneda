@@ -1,6 +1,7 @@
 package museoMoneda;
 
 import java.sql.Date;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
@@ -83,8 +84,8 @@ public class ModificarController {
 	}
 
 	@RequestMapping("/actualizar/ejemplar")
-	public String actualizarEjemplar(@RequestParam int ejemplarID, Integer modelo, Integer year, String ciudad, Date fecha, String estado, String cif, Model model) throws ParseException {
-		
+	public String actualizarEjemplar(@RequestParam int ejemplarID, Integer modelo, Integer year, String ciudad, Integer dia, Integer mes, Integer ano, String estado, String cif, Model model) throws ParseException {
+
 		int contador = 0;
 		Ejemplar ejemplarAntiguo = repEjemplar.findById(ejemplarID).get();
 
@@ -116,22 +117,30 @@ public class ModificarController {
 			contador++;
 			ejemplarAntiguo.setYear(year);
 		}
-		
+
 		if (ciudad != "") {
 			contador++;
 			ejemplarAntiguo.setCiudad(ciudad);
 		}
-		
-		String fechaPre ="1970-01-01";
-		SimpleDateFormat formatoDeFecha = new SimpleDateFormat("yyyy/MM/dd");
-		if (!fecha.equals(fechaPre)) {
+
+
+		if (dia != null && mes != null && ano != null) {
+			String aux = String.valueOf(ano) + "-" + String.valueOf(mes) + "-" + String.valueOf(dia);
+			DateFormat format = new SimpleDateFormat("yyyy-mm-dd");
+			format.setLenient(false);
+			try {
+				format.parse(aux);
+			} catch (ParseException e) {
+				model.addAttribute("error", "No se pudo modificar porque no es una fecha válida.");
+				return "error";
+			}
+
+			ejemplarAntiguo.setFecha(Date.valueOf(aux));
 			contador++;
-			ejemplarAntiguo.setFecha(fecha);
-		}else {
-			fecha= (Date) formatoDeFecha.parse(fechaPre);
 		}
-		
-		if (estado != "") {
+
+
+		if (!estado.equals("nada")) {
 			contador++;
 			ejemplarAntiguo.setEstado(estado);
 		}

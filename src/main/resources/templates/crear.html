@@ -33,14 +33,14 @@
 						<table>
 							<tr>
 								<td><label class="Etiquetas">Valor Facial:</label></td>
-								<td><input type='number' min="0" class="campos"
+								<td><input type='number' min="1" class="campos"
 									name='valor' placeholder="Numero Entero" autofocus="autofocus"
 									required /></td>
 							</tr>
 							<tr>
 								<td><label class="Etiquetas">Divisa:</label></td>
 								<td><input type='text' class="campos" name='divisa'
-									placeholder="Euro, dólar..." required /></td>
+									placeholder="Euro, dólar..." pattern="[^0-9]*" required /></td>
 							</tr>
 							<tr>
 								<td><label class="Etiquetas">Diámetro:</label></td>
@@ -55,7 +55,7 @@
 							<tr>
 								<td><label class="Etiquetas">Composición:</label></td>
 								<td><input type='text' class="campos" name='composicion'
-									placeholder="Zinc, Cobre..." required /></td>
+									placeholder="Zinc, Cobre..." pattern="[^0-9]*" required /></td>
 							</tr>
 							<tr>
 								<td><label class="Etiquetas">Descripción:</label></td>
@@ -84,10 +84,10 @@
 								<td><label class="Etiquetas">Modelo:</label></td>
 								<td><input type="number" min="1" class="campos"
 									name='modelo' placeholder="Número de Serie"
-									autofocus="autofocus" a required /></td>
+									autofocus="autofocus" required /></td>
 							</tr>
 							<tr>
-								<td><label class="Etiquetas">Año:</label></td>
+								<td><label class="Etiquetas">Año de Acuñación:</label></td>
 
 								<td><input type='number' class="campos" name='year'
 									max="2019" placeholder="2019" required /></td>
@@ -96,7 +96,7 @@
 								<td><label class="Etiquetas">Ciudad de Acuñación:</label></td>
 
 								<td><input type='text' class="campos" name='ciudad'
-									placeholder="Madrid, Lisboa..." required /></td>
+									placeholder="Madrid, Lisboa..." pattern="[^0-9]*" required /></td>
 							</tr>
 							<tr>
 								<td><label class="Etiquetas">Fecha de Adquisición:</label>
@@ -124,7 +124,7 @@
 							<tr>
 								<td><label class="Etiquetas">Proveedor:</label></td>
 								<td><input type='text' class="campos" name='cif'
-									placeholder="CIF" required /></td>
+									placeholder="CIF" pattern="[A-Z]\d{7}([A-Z]|\d)" required /></td>
 							</tr>
 						</table>
 						<div class='centrado'>
@@ -164,7 +164,7 @@
 								<td><label class="Etiquetas">E-Mail:</label></td>
 
 								<td><input type='text' class="campos" name='email'
-									placeholder="correo@empresa.dom" required /></td>
+									placeholder="correo@empresa.dom" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required /></td>
 							</tr>
 							<tr>
 								<td><label class="Etiquetas">Teléfono de Contacto:</label>

@@ -35,9 +35,9 @@ public class MostrarController {
 			String divisa, String valor, String orden,  Model model) {
 
 		Comparator<Moneda> cmpMonValor = (m1,m2)->m1.getValor() - m2.getValor();
-		Comparator<Moneda> cmpMonDivisa = (m1,m2)->m1.getDivisa().compareTo(m2.getDivisa());
-		Comparator<Moneda> cmpMonDiametro = (m1,m2)-> (m1.getDiametro() == m2.getDiametro()) ? 0 : (m1.getDiametro() < m2.getDiametro())? -1 : 1 ;
-		Comparator<Moneda> cmpMonPeso = (m1,m2)-> (m1.getPeso() == m2.getPeso()) ? 0 : (m1.getPeso() < m2.getPeso())? -1 : 1 ;
+		Comparator<Moneda> cmpMonDivisa = (m1,m2)->m1.getDivisa().compareToIgnoreCase(m2.getDivisa());
+		Comparator<Moneda> cmpMonDiametro = (m1,m2)-> Double.compare(m1.getDiametro(), m2.getDiametro());
+		Comparator<Moneda> cmpMonPeso = (m1,m2)-> Double.compare(m1.getPeso(), m2.getPeso());
 
 		List<Moneda> lista;
 
@@ -86,8 +86,8 @@ public class MostrarController {
 			@PathVariable(value="av") String av,
 			String nombre, String cif, String orden,  Model model) {
 
-		Comparator<Proveedor> cmpPrvCIF = (p1, p2) -> p1.getCif().compareTo(p2.getCif());
-		Comparator<Proveedor> cmpPrvNombre = (p1, p2) -> p1.getNombre().compareTo(p2.getNombre());
+		Comparator<Proveedor> cmpPrvCIF = (p1, p2) -> p1.getCif().compareToIgnoreCase(p2.getCif());
+		Comparator<Proveedor> cmpPrvNombre = (p1, p2) -> p1.getNombre().compareToIgnoreCase(p2.getNombre());
 
 		List<Proveedor> lista;
 
@@ -130,8 +130,8 @@ public class MostrarController {
 			@PathVariable(value="av") String av,
 			String estado, String ciudad, String orden,  Model model) {
 
-		Comparator<Ejemplar> cmpEjmCiudad = (p1, p2) -> p1.getCiudad().compareTo(p2.getCiudad());
-		Comparator<Ejemplar> cmpEjmEstado = (p1, p2) -> p1.getEstado().compareTo(p2.getEstado());
+		Comparator<Ejemplar> cmpEjmCiudad = (p1, p2) -> p1.getCiudad().compareToIgnoreCase(p2.getCiudad());
+		Comparator<Ejemplar> cmpEjmEstado = (p1, p2) -> p1.getEstado().compareToIgnoreCase(p2.getEstado());
 		Comparator<Ejemplar> cmpEjmFecha = (p1, p2) -> p1.getFecha().compareTo(p2.getFecha());
 
 		List<Ejemplar> lista;

@@ -72,13 +72,13 @@
 						<table>
 							<tr>
 								<td><label class="Etiquetas">Valor Facial:</label></td>
-								<td><input type='number' min="0" class="campos"
+								<td><input type='number' min="1" class="campos"
 									autofocus="autofocus" name='valor' placeholder="Numero Entero" /></td>
 							</tr>
 							<tr>
 								<td><label class="Etiquetas">Divisa:</label></td>
 								<td><input type='text' class="campos" name='divisa'
-									placeholder="Euro, dólar..." /></td>
+									placeholder="Euro, dólar..." pattern="[^0-9]*" /></td>
 							</tr>
 							<tr>
 								<td><label class="Etiquetas">Diámetro:</label></td>
@@ -93,7 +93,7 @@
 							<tr>
 								<td><label class="Etiquetas">Composición:</label></td>
 								<td><input type='text' class="campos" name='composicion'
-									placeholder="Zinc, Cobre..." /></td>
+									placeholder="Zinc, Cobre..." pattern="[^0-9]*" /></td>
 							</tr>
 							<tr>
 								<td><label class="Etiquetas">Descripción:</label></td>
@@ -168,7 +168,7 @@
 						<table>
 							<tr>
 								<td><label class="Etiquetas">CIF:</label></td>
-								<td><input type='number' min="0" class="campos"
+								<td><input type='text' min="0" class="campos"
 									autofocus="autofocus" name='cif' placeholder="A1234567B"
 									pattern="[A-Z]\d{7}([A-Z]|\d)" /></td>
 							</tr>
@@ -185,6 +185,7 @@
 							<tr>
 								<td><label class="Etiquetas">E-mail:</label></td>
 								<td><input type='text' class="campos" name='email'
+									pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
 									placeholder="correo@empresa.dom" /></td>
 							</tr>
 							<tr>
@@ -225,7 +226,7 @@
 							<td><span th:text="${ejemplar.moneda.modelo}"></span></td>
 						</tr>
 						<tr>
-							<td><label class="Etiquetas">Año:</label></td>
+							<td><label class="Etiquetas">Año de Acuñación:</label></td>
 							<td><span th:text="${ejemplar.year}"></span></td>
 						</tr>
 						<tr>
@@ -269,24 +270,28 @@
 									placeholder="Número de Serie" /></td>
 							</tr>
 							<tr>
-								<td><label class="Etiquetas">Año de adquisición:</label></td>
+								<td><label class="Etiquetas">Año de Acuñación:</label></td>
 								<td><input type='text' class="campos" name='year'
 									max="2019" placeholder="2019" /></td>
 							</tr>
 							<tr>
 								<td><label class="Etiquetas">Ciudad de Acuñación:</label></td>
 								<td><input type='text' class="campos" name='ciudad'
-									placeholder="Madrid, Lisboa..." /></td>
+									placeholder="Madrid, Lisboa..." pattern="[^0-9]*" /></td>
 							</tr>
 							<tr>
 								<td><label class="Etiquetas">Fecha de Adquisición:</label></td>
-								<td><input type='date' class="campos" name='fecha'
-									max="2019-06-01" /></td>
+								<td><input type="text" class="campos" name='ano' max='2019'
+									placeholder="Año" size="3" /> <input type='text'
+									class="campos" name='mes' min='1' max='12' placeholder="Mes"
+									size="3" /> <input type="text" class="campos" name='dia'
+									min='1' max='31' placeholder="Día" size="3" /></td>
 							</tr>
 							<tr>
 								<td><label class="Etiquetas">Estado de
 										Conservación:</label></td>
 								<td><select name="estado">
+										<option value="nada">Estado</option>
 										<option value="PRF">Pruebas</option>
 										<option value="FDC">Flor de Cuño</option>
 										<option value="SC">Sin Circular</option>
@@ -301,7 +306,7 @@
 							<tr>
 								<td><label class="Etiquetas">Proveedor:</label></td>
 								<td><input type='text' class="campos" name='cif'
-									placeholder="CIF" /></td>
+									placeholder="CIF" pattern="[A-Z]\d{7}([A-Z]|\d)" /></td>
 							</tr>
 						</table>
 						<div class='centrado'>
@@ -318,6 +323,6 @@
 		<!-- ambas columnas -->
 	</div>
 	<!-- caso Ejemplar -->
-	
+
 </body>
 </html>
