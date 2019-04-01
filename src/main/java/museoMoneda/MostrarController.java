@@ -32,7 +32,7 @@ public class MostrarController {
 	public String buscadoMoneda(
 			@PathVariable(value="src") String src,
 			@PathVariable(value="av") String av,
-			String divisa, String valor, String orden,  Model model) {
+			String divisa, String valor, String peso, String orden,  Model model) {
 
 		Comparator<Moneda> cmpMonValor = (m1,m2)->m1.getValor() - m2.getValor();
 		Comparator<Moneda> cmpMonDivisa = (m1,m2)->m1.getDivisa().compareToIgnoreCase(m2.getDivisa());
@@ -41,16 +41,24 @@ public class MostrarController {
 
 		List<Moneda> lista;
 
-		if(valor=="" && divisa=="") {
+		if(valor=="" && divisa=="" && peso=="") {
 			model.addAttribute("mensaje", "Todas las Monedas");
 			lista = repMonedas.findAll();
 		} else {
-			if(divisa=="") {
-				lista = repMonedas.findByValor(Integer.parseInt(valor));
-			} else if(valor==""){
+			if(divisa=="" && valor=="") {
+				lista = repMonedas.findByPeso(Double.parseDouble(peso));
+			} else if(valor=="" && peso==""){
 				lista = repMonedas.findByDivisa(divisa);
-			}else {
+			}else if(divisa=="" && peso==""){
+				lista = repMonedas.findByValor(Integer.parseInt(valor));
+			}else if(divisa=="") {
+				lista = repMonedas.findByValorAndPeso(Integer.parseInt(valor), Double.parseDouble(peso));
+			}else if(peso=="") {
 				lista = repMonedas.findByDivisaAndValor(divisa, Integer.parseInt(valor));
+			}else if(valor=="") {
+				lista = repMonedas.findByDivisaAndPeso(divisa, Double.parseDouble(peso));
+			}else {
+				lista = repMonedas.findByDivisaAndValorAndPeso(divisa, Integer.parseInt(valor), Double.parseDouble(peso));
 			}
 
 			if (lista.size()>1) {
