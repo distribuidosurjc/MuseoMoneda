@@ -1,17 +1,11 @@
 package museoMoneda;
 
 import java.sql.Date;
-import java.util.Collection;
-import java.util.Optional;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -76,8 +70,6 @@ public class Ejemplar {
 			this.estado= estado;
 	}
 	
-	
-
 	public int getId() {
 		return id;
 	}
@@ -97,25 +89,5 @@ public class Ejemplar {
 	public void setProveedor(Proveedor proveedor) {
 		this.proveedor = proveedor;
 	}
-
-	/**
-	 * @param anotherString
-	 * @return
-	 * @see java.lang.String#compareTo(java.lang.String)
-	 */
-	public int compareTo(String anotherString) {
-		return ciudad.compareTo(anotherString);
-	}
-
-	/**
-	 * @param arg0
-	 * @return
-	 * @see java.util.Date#compareTo(java.util.Date)
-	 */
-	public int compareTo(java.util.Date arg0) {
-		return fecha.compareTo(arg0);
-	}
-	
-
 
 }

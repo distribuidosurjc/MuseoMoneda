@@ -8,7 +8,6 @@ import java.text.SimpleDateFormat;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -22,7 +21,7 @@ public class ModificarController {
 	@Autowired
 	public ProveedorRepository repProveedor;
 
-	// Moneda
+	/** Moneda **/ 
 
 	@RequestMapping("/modificar/moneda")
 	public String modificarMoneda(@RequestParam int monedaID, Model model) {
@@ -73,7 +72,7 @@ public class ModificarController {
 		return "hecho";
 	}
 
-	// Ejemplar
+	/** Ejemplar **/
 
 	@RequestMapping("/modificar/ejemplar")
 	public String modificarEjemplar(@RequestParam int ejemplarID, Model model) {
@@ -155,7 +154,7 @@ public class ModificarController {
 		return "hecho";
 	}
 
-	// Proveedor
+	/** Proveedor **/
 
 	@RequestMapping("/modificar/proveedor")
 	public String modificarProveedor(@RequestParam String proveedorID, Model model) {

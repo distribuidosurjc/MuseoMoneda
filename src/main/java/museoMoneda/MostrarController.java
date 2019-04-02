@@ -9,7 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class MostrarController {
@@ -41,23 +40,23 @@ public class MostrarController {
 
 		List<Moneda> lista;
 
-		if(valor=="" && divisa=="" && peso=="") {
+		if(valor=="" && divisa=="" && peso=="") { // Todas
 			model.addAttribute("mensaje", "Todas las Monedas");
 			lista = repMonedas.findAll();
 		} else {
-			if(divisa=="" && valor=="") {
+			if(divisa=="" && valor=="") { // Por peso
 				lista = repMonedas.findByPeso(Double.parseDouble(peso));
-			} else if(valor=="" && peso==""){
+			} else if(valor=="" && peso==""){ // Por divisa
 				lista = repMonedas.findByDivisa(divisa);
-			}else if(divisa=="" && peso==""){
+			}else if(divisa=="" && peso==""){ // Por valor
 				lista = repMonedas.findByValor(Integer.parseInt(valor));
-			}else if(divisa=="") {
+			}else if(divisa=="") { // Por valor y peso
 				lista = repMonedas.findByValorAndPeso(Integer.parseInt(valor), Double.parseDouble(peso));
-			}else if(peso=="") {
+			}else if(peso=="") { // Por divisa y valor
 				lista = repMonedas.findByDivisaAndValor(divisa, Integer.parseInt(valor));
-			}else if(valor=="") {
+			}else if(valor=="") { // Por divisa y peso
 				lista = repMonedas.findByDivisaAndPeso(divisa, Double.parseDouble(peso));
-			}else {
+			}else { // Por todo
 				lista = repMonedas.findByDivisaAndValorAndPeso(divisa, Integer.parseInt(valor), Double.parseDouble(peso));
 			}
 
@@ -99,16 +98,16 @@ public class MostrarController {
 
 		List<Proveedor> lista;
 
-		if(nombre=="" && cif=="") {
+		if(nombre=="" && cif=="") { // Todos
 			lista = repProveedor.findAll();
 			model.addAttribute("mensaje", "Todos las Proveedores");
 		} else {
-			if(nombre=="") {
+			if(nombre=="") { // Por cif
 				lista = new ArrayList<Proveedor>();
 				lista.add(repProveedor.findById(cif).get());
-			} else if(cif==""){
+			} else if(cif==""){ // Por nombre
 				lista = repProveedor.findByNombre(nombre);
-			} else {
+			} else { // Por cif y nombre
 				lista = repProveedor.findByCifAndNombre(cif, nombre);
 			}
 
@@ -144,10 +143,10 @@ public class MostrarController {
 
 		List<Ejemplar> lista;
 
-		if(ciudad =="" && divisa == "" && cif == "") {
+		if(ciudad =="" && divisa == "" && cif == "") { // Todos
 			lista = repEjemplar.findAll();
 			model.addAttribute("mensaje", "Todos los Ejemplares");
-		} else {
+		} else { 
 			if(divisa =="" && cif == "") { // Sólo ciudad
 				lista = repEjemplar.findByCiudad(ciudad);
 			} else if(ciudad =="" && cif == ""){ // Sólo divisa
