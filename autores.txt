@@ -24,7 +24,7 @@ DNI: 50359920V
 Correo: g.garciamaro@alumnos.urjc.es
 Participación:
 - Implementación de modificar.html, ModificarController.java.
-- Trabajado en style.css, EjemplarRepository.java, Ejemplar.java, ...
+- Trabajado en style.css, EjemplarRepository.java, Ejemplar.java, Index.html, Proveedor.java.
 - Comprobación de funcionamiento de la aplicación.
 
 Nombre completo: Daniel Martín de Castro
