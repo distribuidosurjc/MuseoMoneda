@@ -1,4 +1,4 @@
-﻿Un fichero autores.txt donde se especifique elnombre, apellidos y DNI de los miembros del grupo,
+﻿U	n fichero autores.txt donde se especifique elnombre, apellidos y DNI de los miembros del grupo,
 y cual ha sido la participación concreta de cada uno en el trabajo.
 No es necesario que las tareas se repartan individualmente, sólo explicar cómo se han repartido.
 
@@ -16,8 +16,8 @@ Nombre completo: Sergio Palacios Gil
 DNI: 48161205X
 Correo: s.palaciosg@alumnos.urjc.es
 Participación:
-- Implementacion de BuscarYmostrar.html, MostrarController.java...
-- Trabajado en style.css, EjemplarRepository.java, Ejemplar.java, error.html...
+- Implementacion de BuscarYmostrar.html, MostrarController.java.
+- Trabajado en style.css, EjemplarRepository.java, error.html, InsertarController.java, MonedaRepository.java.
 
 Nombre completo: Guillermo García Maroto
 DNI: 50359920V
