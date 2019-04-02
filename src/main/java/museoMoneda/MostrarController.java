@@ -136,7 +136,7 @@ public class MostrarController {
 	public String buscadoEjemplar(
 			@PathVariable(value="src") String src,
 			@PathVariable(value="av") String av,
-			String estado, String ciudad, String orden,  Model model) {
+			String ciudad, String cif, String divisa, String orden,  Model model) {
 
 		Comparator<Ejemplar> cmpEjmCiudad = (p1, p2) -> p1.getCiudad().compareToIgnoreCase(p2.getCiudad());
 		Comparator<Ejemplar> cmpEjmEstado = (p1, p2) -> p1.getEstado().compareToIgnoreCase(p2.getEstado());
@@ -144,16 +144,24 @@ public class MostrarController {
 
 		List<Ejemplar> lista;
 
-		if(estado=="" && ciudad =="") {
+		if(ciudad =="" && divisa == "" && cif == "") {
 			lista = repEjemplar.findAll();
 			model.addAttribute("mensaje", "Todos los Ejemplares");
 		} else {
-			if(ciudad=="") {
-				lista = repEjemplar.findByEstado(estado);
-			} else if(estado==""){
+			if(divisa =="" && cif == "") { // Sólo ciudad
 				lista = repEjemplar.findByCiudad(ciudad);
-			} else {
-				lista = repEjemplar.findByEstadoAndCiudad(estado, ciudad);
+			} else if(ciudad =="" && cif == ""){ // Sólo divisa
+				lista = repEjemplar.findByMoneda_divisa(divisa);
+			} else if(divisa =="" && ciudad == ""){ // Sólo CIF
+				lista = repEjemplar.findByProveedor_cif(cif);
+			} else if(cif == "") { // Divisa y Ciudad
+				lista = repEjemplar.findByMoneda_divisaAndCiudad(divisa, ciudad);
+			} else if (ciudad == "") { // Divisa y CIF
+				lista = repEjemplar.findByMoneda_divisaAndProveedor_cif(divisa, cif);
+			} else if (divisa == "") { // Ciudad y Cif
+				lista = repEjemplar.findByCiudadAndProveedor_cif(ciudad, cif);
+			} else { // todos llenos
+				lista = repEjemplar.findByCiudadAndMoneda_divisaAndProveedor_cif(ciudad, divisa, cif);
 			}
 
 			if (lista.size()>1) {
