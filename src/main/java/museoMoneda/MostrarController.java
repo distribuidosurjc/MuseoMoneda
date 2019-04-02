@@ -73,7 +73,7 @@ public class MostrarController {
 		case "Divisa":
 			lista.sort(cmpMonDivisa);
 			break;
-		case "Diametro":
+		case "Diámetro":
 			lista.sort(cmpMonDiametro);
 			break;
 		case "Peso":

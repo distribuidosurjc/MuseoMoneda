@@ -27,8 +27,8 @@ public class IndexController {
 		Moneda m2 = new Moneda(6, "dolar", 1.3, 7.4, "Cobre", "Abollada");
 		repMonedas.save(m2);
 		repMonedas.save(new Moneda(6, "dolar", 1.3, 7.4, "Zinc", "Olorosa"));
-		repMonedas.save(new Moneda(6, "yen", 2, 4, "Aluminio", "Reluciente"));
-		repMonedas.save(new Moneda(17, "yen", 13, 7, "Bronce", "Doblada"));
+		repMonedas.save(new Moneda(6, "yen", 2.0, 4, "Aluminio", "Reluciente"));
+		repMonedas.save(new Moneda(17, "yen", 13.0, 7, "Bronce", "Doblada"));
 		repMonedas.save(new Moneda(50, "dolar", 6.6, 1.4, "Plata", "Maravillosa"));
 		
 		Proveedor proveedorEjemplo = new Proveedor("B0000000A", "Calderilla", "Calle Falsa 123", "correo@calderilla.dom", 972240765);
