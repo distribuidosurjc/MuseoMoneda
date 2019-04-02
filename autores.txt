@@ -31,5 +31,5 @@ Nombre completo: Daniel Martín de Castro
 DNI: 04856929L
 Correo: d.martindec@alumnos.urjc.es
 Participación:
-- Implementación Tabla de Proveedor (Proveedor.java, ProveedorRepository.java y ProveedorController.java)
-- Trabajado en styles.css, modificar.html, MonedaController.java, EjemplarController.java, ...
+- Implementación Tabla de Proveedor (Proveedor.java, ProveedorRepository.java).
+- Trabajado en styles.css, modificar.html, InsertarController.java, ModificarController.java, Index.html.
